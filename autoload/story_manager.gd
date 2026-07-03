@@ -52,11 +52,27 @@ func get_current_node() -> Dictionary:
 			visible_choices.append({"label": choice.get("label", ""), "index": i})
 
 	return {
-		"text": ProfileManager.apply_template(raw.get("text", "")),
+		"text": ProfileManager.apply_template(_select_text(raw)),
 		"backdrop": raw.get("backdrop", "mountain_gate"),
 		"choices": visible_choices,
 		"is_ending": raw_choices.is_empty()
 	}
+
+func _select_text(raw: Dictionary) -> String:
+	var variants: Array = raw.get("variants", [])
+	for variant in variants:
+		var when: Dictionary = variant.get("when", {})
+		if _all_conditions_met(when):
+			return variant.get("text", raw.get("text", ""))
+	return raw.get("text", "")
+
+func _all_conditions_met(when: Dictionary) -> bool:
+	for key in when:
+		var expected = when[key]
+		var actual = flags.get(key, ProfileManager.profile.get(key, null))
+		if actual != expected:
+			return false
+	return true
 
 func _choice_is_visible(choice: Dictionary) -> bool:
 	if choice.has("requires_flag") and not _requirement_met(choice["requires_flag"], flags):

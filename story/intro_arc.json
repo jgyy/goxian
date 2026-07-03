@@ -2,6 +2,18 @@
   "start": {
     "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says. Even now, {spiritual_root}.",
     "backdrop": "mountain_gate",
+    "variants": [
+      { "when": {"spiritual_root": "void"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path — and hesitates, unable to sense anything from you at all.\n\n\"State your reason for seeking the Dao,\" she says, more carefully than before." },
+      { "when": {"spiritual_root": "heretical"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path, then flinches — too many elements answer at once from wherever you're standing.\n\n\"State your reason for seeking the Dao,\" she says, watching you like something might catch fire." },
+      { "when": {"spiritual_root": "fire"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect, hissing faintly where it drifts too close to you. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says, one eyebrow raised at the warmth coming off you." },
+      { "when": {"spiritual_root": "water"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect, and seems almost to lean toward you as it passes. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says, her voice as level as still water." },
+      { "when": {"spiritual_root": "wood"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect, and the moss between the stones seems a little greener where you stand. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says." },
+      { "when": {"spiritual_root": "metal"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. Somewhere nearby, a wind chime rings once for no reason at all as you approach. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says." },
+      { "when": {"spiritual_root": "earth"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. Your footsteps land heavier than they should, as if the mountain itself were listening. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says." },
+      { "when": {"fengshui_omen": "cursed"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect, and for a moment it seems to avoid you entirely. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path, her eyes lingering a beat too long on your face, as if she's heard rumors.\n\n\"State your reason for seeking the Dao,\" she says." },
+      { "when": {"fengshui_omen": "twin_star"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path, and for just a moment her gaze flickers past your shoulder, as if expecting someone else to be walking beside you.\n\n\"State your reason for seeking the Dao,\" she says." },
+      { "when": {"fengshui_omen": "unreadable"}, "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path, glancing at you the way one glances at a locked door.\n\n\"State your reason for seeking the Dao,\" she says. Even now, {spiritual_root}." }
+    ],
     "choices": [
       { "label": "\"I seek strength to protect those I love.\"", "next": "answer_protect", "set_flags": {"motive": "protect"} },
       { "label": "\"I seek to transcend my mortal limits.\"", "next": "answer_transcend", "set_flags": {"motive": "transcend"} },
@@ -11,6 +23,18 @@
   "answer_protect": {
     "text": "The disciple's eyes soften slightly. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"",
     "backdrop": "mountain_gate",
+    "variants": [
+      { "when": {"species": "reincarnated_soul"}, "text": "The disciple's eyes soften. \"A common answer, but an honest one.\" Something about the weight in your voice makes her look at you a moment longer, as if she's trying to place a face she's never seen before. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"species": "demonic_bloodline"}, "text": "The disciple's eyes soften slightly, though something in her posture doesn't quite relax. \"A common answer, but an honest one — from anyone else.\" She steps aside anyway. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"species": "half_spirit_beast"}, "text": "The disciple's eyes soften. \"A common answer, but an honest one.\" She studies the way you hold yourself, faintly feral even now, and steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"moral_alignment": "compassionate"}, "text": "The disciple's eyes soften, and for a moment something almost like warmth crosses her face. \"A common answer, but an honest one — and I believe you mean it.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"moral_alignment": "ruthless"}, "text": "The disciple's eyes soften slightly, though she watches you carefully, as if wondering what \"protect\" means coming from someone like you. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"moral_alignment": "righteous"}, "text": "The disciple's eyes soften slightly, and she nods once, as though your answer confirmed something she'd hoped. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"background": "orphan"}, "text": "The disciple's eyes soften slightly. \"A common answer, but an honest one.\" She doesn't ask who it is you mean to protect, and you're grateful for that. She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"background": "fallen_noble"}, "text": "The disciple's eyes soften slightly. \"A common answer, but an honest one — surprising, from someone dressed like you once were.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"wealth": "destitute"}, "text": "The disciple's eyes soften slightly, taking in your threadbare clothes without comment. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"wealth": "wealthy"}, "text": "The disciple's eyes soften slightly, though she glances once at the fine make of your clothes, as if wondering what someone so comfortable needs protecting from. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" }
+    ],
     "choices": [
       { "label": "Enter the sect.", "next": "hall_elder" }
     ]
@@ -18,6 +42,18 @@
   "answer_transcend": {
     "text": "The disciple studies you a long moment. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"",
     "backdrop": "mountain_gate",
+    "variants": [
+      { "when": {"species": "half_spirit_beast"}, "text": "The disciple studies you a long moment, something in her gaze catching on the feral edge beneath your human shape. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"species": "demonic_bloodline"}, "text": "The disciple studies you a long moment, her hand drifting, briefly, toward the hilt at her waist before she stops herself. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"species": "reincarnated_soul"}, "text": "The disciple studies you a long moment, and something about your eyes seems older than the rest of you. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"moral_alignment": "detached"}, "text": "The disciple studies you a long moment, unsettled by how little your answer seemed to cost you. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"moral_alignment": "pragmatic"}, "text": "The disciple studies you a long moment, and something in her expression suggests she respects the honesty of it. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"talent_aptitude": "prodigy"}, "text": "The disciple studies you a long moment, as if she can already tell your ambition isn't idle talk. \"Ambition. Dangerous, but useful — more useful, in your case, than most.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"talent_aptitude": "one_trick_genius"}, "text": "The disciple studies you a long moment. \"Ambition. Dangerous, but useful.\" She wonders, visibly, what single thing you're extraordinary at. She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"birth_location": "sect_territory"}, "text": "The disciple studies you a long moment. \"Ambition. Dangerous, but useful. You've clearly been near cultivators before — I can tell.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"birth_location": "borderlands"}, "text": "The disciple studies you a long moment, noting something wild and watchful about the way you hold yourself. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" },
+      { "when": {"fengshui_omen": "unreadable"}, "text": "The disciple studies you a long moment, and something about her expression suggests she can't quite get a read on you at all. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" }
+    ],
     "choices": [
       { "label": "Enter the sect.", "next": "hall_elder" }
     ]
@@ -25,6 +61,18 @@
   "answer_heretical": {
     "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud. \"...Enter,\" she says finally, watching you a beat too long. \"The Elder will want to see you personally.\"",
     "backdrop": "mountain_gate",
+    "variants": [
+      { "when": {"moral_alignment": "righteous"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and yet there's nothing cruel in your bearing, only quiet resolve. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"moral_alignment": "pragmatic"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud. You let the silence do its work and don't bother explaining. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"moral_alignment": "ruthless"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and something about the stillness in your face makes her take half a step back. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"moral_alignment": "compassionate"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, though your expression stays gentle throughout. \"...Enter,\" she says finally, some of the tension easing from her shoulders. \"The Elder will want to see you personally.\"" },
+      { "when": {"moral_alignment": "detached"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud. You watch her reaction the way you might watch weather. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"species": "half_spirit_beast"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and underneath it she catches something else too, something not quite human. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"species": "demonic_bloodline"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and beneath the tangle she senses something the sect would have opinions about. \"...Enter,\" she says finally, more warily than before. \"The Elder will want to see you personally.\"" },
+      { "when": {"species": "reincarnated_soul"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, layered and strange, like more than one life's worth of qi. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"species": "human"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, stranger for how plainly human you otherwise seem. \"...Enter,\" she says finally. \"The Elder will want to see you personally.\"" },
+      { "when": {"fengshui_omen": "unreadable"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and something about you resists being read at all, even now. \"...Enter,\" she says finally, watching you a beat too long. \"The Elder will want to see you personally.\"" }
+    ],
     "choices": [
       { "label": "Enter the sect.", "next": "hall_elder" }
     ]
@@ -32,6 +80,18 @@
   "hall_elder": {
     "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone. You remember, briefly, that {background}.",
     "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, and you think, briefly, of who you came here for." },
+      { "when": {"motive": "transcend"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, and you think, briefly, of every ceiling you've ever wanted to break through." },
+      { "when": {"background": "scholar"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone. Some old text you once read mentioned stones like this, though you never expected to hold one." },
+      { "when": {"background": "performer"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone. You've read a hundred crowds before — but never a stone." },
+      { "when": {"background": "merchant"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, and some old habit makes you wonder, briefly, what it would fetch at market." },
+      { "when": {"background": "farming"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, no heavier than a good field stone, and just as unremarkable to look at." },
+      { "when": {"wealth": "hidden_fortune"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, worth nothing compared to what you carry, and yet it feels like the only thing that matters right now." },
+      { "when": {"birth_location": "trade_barge"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone. For once, the ground beneath you isn't moving." },
+      { "when": {"birth_location": "mountain_village"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone that could have been chipped from the mountains you grew up beneath." },
+      { "when": {"fengshui_omen": "auspicious"}, "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone, and something about the moment feels like it was always going to happen." }
+    ],
     "choices": [
       { "label": "Take the stone without hesitation.", "next": "trial_bold" },
       { "label": "Ask what happens if you refuse.", "next": "trial_cautious", "set_flags": {"cautious": true} }
@@ -40,6 +100,18 @@
   "trial_bold": {
     "text": "You grasp the stone. It flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear.\"",
     "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold — and I see now exactly who that boldness is for.\"" },
+      { "when": {"motive": "transcend"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold. The stone shows a heart that already refuses its limits.\"" },
+      { "when": {"spiritual_root": "void"}, "text": "You grasp the stone. It flares, faintly, as if straining to find anything in you to read at all — then cools. Elder Wren's eyes narrow with interest. \"Bold, from someone the stone can barely see.\"" },
+      { "when": {"spiritual_root": "heretical"}, "text": "You grasp the stone. It flares in three colors at once, tangled and bright, then cools. Elder Wren's brow lifts. \"Bold. The stone shows a heart unclouded by fear — and considerably more complicated than most.\"" },
+      { "when": {"talent_aptitude": "prodigy"}, "text": "You grasp the stone. It flares white-hot almost instantly, faster than she's used to seeing, then cools. Elder Wren nods slowly. \"Bold, and quick to answer. The stone shows a heart unclouded by fear.\"" },
+      { "when": {"talent_aptitude": "late_bloomer"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools — slower to react than most, but no less certain. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear, even if the rest of you is still catching up to it.\"" },
+      { "when": {"moral_alignment": "ruthless"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools. Elder Wren studies the color of the flare a moment longer than usual. \"Bold. The stone shows a heart unclouded by fear — or by much else, perhaps.\"" },
+      { "when": {"moral_alignment": "righteous"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools, steady and clean. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear, and untroubled by doubt.\"" },
+      { "when": {"species": "demonic_bloodline"}, "text": "You grasp the stone. It flares white-hot for an instant, then cools, the light briefly tinged a color that makes a nearby disciple flinch. Elder Wren doesn't react. \"Bold. The stone shows a heart unclouded by fear.\"" },
+      { "when": {"wealth": "destitute"}, "text": "You grasp the stone — the first thing of any worth you've held in a long while — and it flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear.\"" }
+    ],
     "choices": [
       { "label": "Ask to begin training.", "next": "ending_bold" }
     ]
@@ -47,6 +119,18 @@
   "trial_cautious": {
     "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"",
     "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, thinking of everything leaving in peace would cost the people you came here for, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"motive": "transcend"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, well aware that peace was never what you came for, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"spiritual_root": "earth"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm slowly, the same unhurried weight you carry everywhere, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"spiritual_root": "water"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm as calmly as still water considering its own depth, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"moral_alignment": "compassionate"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, wondering, even now, whether taking it might cost someone else something, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"moral_alignment": "detached"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm without any particular hurry, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"background": "scholar"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm the way you'd weigh a question in an old text, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"fengshui_omen": "cursed"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, half-expecting it to punish you the way most things seem to, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"fengshui_omen": "twin_star"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, wondering if somewhere else, someone fated to mirror you is making the opposite choice, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" },
+      { "when": {"wealth": "comfortable"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, aware that you have less to lose than most who stand here, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" }
+    ],
     "choices": [
       { "label": "Ask to begin training.", "next": "ending_cautious" }
     ]
@@ -54,11 +138,35 @@
   "ending_bold": {
     "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and driven by a heart that seeks strength above all.",
     "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and driven by the faces of the people you mean to protect." },
+      { "when": {"motive": "transcend"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and driven by every limit you've already decided isn't permanent." },
+      { "when": {"species": "reincarnated_soul"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, though some part of you feels like it's beginning again." },
+      { "when": {"species": "half_spirit_beast"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, the feral thing beneath your skin finally allowed somewhere to stretch." },
+      { "when": {"spiritual_root": "fire"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, the warmth at your core no longer something to hide." },
+      { "when": {"spiritual_root": "metal"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, something in you finally ringing true and clear." },
+      { "when": {"moral_alignment": "ruthless"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and you already know exactly what you're willing to spend to get stronger." },
+      { "when": {"birth_location": "sect_territory"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, in the very shadow you spent your whole childhood looking up into." },
+      { "when": {"wealth": "wealthy"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, though for the first time in your life, none of it can be bought." },
+      { "when": {"fengshui_omen": "twin_star"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and somewhere out there, you can't shake the feeling that someone else's journey just began too." }
+    ],
     "choices": []
   },
   "ending_cautious": {
     "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}.",
     "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming, and how you'll keep others safe besides.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"motive": "transcend"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"Ambition without patience burns out fast here.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"species": "demonic_bloodline"}, "text": "Elder Wren walks with you personally to the outer courtyard, close enough that a few disciples notice. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming — and how the sect will learn to trust you.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"spiritual_root": "water"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says, and something about the advice seems to settle naturally into you, like water finding its level. Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"spiritual_root": "wood"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"Roots grow slow, and outlast the storm.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"moral_alignment": "compassionate"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"Caring for others starts with not getting yourself killed first.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"background": "farming"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"Not unlike waiting for the right season, I'd imagine.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"birth_location": "borderlands"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"You already know how to read a threat before it arrives — now learn to read a teacher the same way.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"wealth": "modest"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"You've clearly learned to make little go a long way — this will be no different.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
+      { "when": {"fengshui_omen": "unreadable"}, "text": "Elder Wren walks with you personally to the outer courtyard, glancing at you once more, as if still trying to solve something. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." }
+    ],
     "choices": []
   }
 }
