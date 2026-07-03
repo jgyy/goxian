@@ -29,7 +29,7 @@ size_flags_vertical=3
 [node name="StoryLog" type="RichTextLabel" parent="VBox"]
 layout_mode=2
 size_flags_vertical=3
-theme_override_font_sizes/normal_font_size=44
+theme_override_font_sizes/normal_font_size=56
 bbcode_enabled=true
 scroll_following=true
 
