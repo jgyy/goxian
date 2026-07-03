@@ -5,6 +5,8 @@ const RANDOM_NAMES := [
 	"Yun", "Zhen", "Qing", "Lei", "Xue", "Hao", "Mei"
 ]
 
+const FIELD_FONT_SIZE := 28
+
 @onready var scene_art: SceneArt = $MainVBox/SceneArt
 @onready var name_edit: LineEdit = $MainVBox/ScrollContainer/VBox/NameRow/NameEdit
 @onready var vbox: VBoxContainer = $MainVBox/ScrollContainer/VBox
@@ -29,10 +31,12 @@ func _build_factor_rows() -> void:
 
 		var label := Label.new()
 		label.text = factor.get("label", factor_id)
-		label.custom_minimum_size = Vector2(200, 0)
+		label.custom_minimum_size = Vector2(260, 0)
+		label.add_theme_font_size_override("font_size", FIELD_FONT_SIZE)
 		row.add_child(label)
 
 		var option_button := OptionButton.new()
+		option_button.add_theme_font_size_override("font_size", FIELD_FONT_SIZE)
 		var options: Array = factor.get("options", [])
 		for option in options:
 			option_button.add_item(option.get("label", option.get("id", "")))

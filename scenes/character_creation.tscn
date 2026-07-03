@@ -39,12 +39,14 @@ layout_mode=2
 
 [node name="NameLabel" type="Label" parent="MainVBox/ScrollContainer/VBox/NameRow"]
 layout_mode=2
-custom_minimum_size=Vector2(200, 0)
+custom_minimum_size=Vector2(260, 0)
+theme_override_font_sizes/font_size=28
 text="Name"
 
 [node name="NameEdit" type="LineEdit" parent="MainVBox/ScrollContainer/VBox/NameRow"]
 layout_mode=2
 size_flags_horizontal=3
+theme_override_font_sizes/font_size=28
 placeholder_text="Enter your character's name"
 
 [node name="ButtonsRow" type="HBoxContainer" parent="MainVBox"]
@@ -53,8 +55,10 @@ alignment=2
 
 [node name="RandomizeButton" type="Button" parent="MainVBox/ButtonsRow"]
 layout_mode=2
+theme_override_font_sizes/font_size=28
 text="Randomize"
 
 [node name="BeginButton" type="Button" parent="MainVBox/ButtonsRow"]
 layout_mode=2
+theme_override_font_sizes/font_size=28
 text="Begin Journey"
