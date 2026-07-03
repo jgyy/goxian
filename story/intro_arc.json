@@ -36,7 +36,7 @@
       { "when": {"wealth": "wealthy"}, "text": "The disciple's eyes soften slightly, though she glances once at the fine make of your clothes, as if wondering what someone so comfortable needs protecting from. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" }
     ],
     "choices": [
-      { "label": "Enter the sect.", "next": "hall_elder" }
+      { "label": "Enter the sect.", "next": "outer_courtyard" }
     ]
   },
   "answer_transcend": {
@@ -55,7 +55,7 @@
       { "when": {"fengshui_omen": "unreadable"}, "text": "The disciple studies you a long moment, and something about her expression suggests she can't quite get a read on you at all. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"" }
     ],
     "choices": [
-      { "label": "Enter the sect.", "next": "hall_elder" }
+      { "label": "Enter the sect.", "next": "outer_courtyard" }
     ]
   },
   "answer_heretical": {
@@ -74,7 +74,22 @@
       { "when": {"fengshui_omen": "unreadable"}, "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud, and something about you resists being read at all, even now. \"...Enter,\" she says finally, watching you a beat too long. \"The Elder will want to see you personally.\"" }
     ],
     "choices": [
-      { "label": "Enter the sect.", "next": "hall_elder" }
+      { "label": "Enter the sect.", "next": "outer_courtyard" }
+    ]
+  },
+  "outer_courtyard": {
+    "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path. \"New blood,\" he says, looking you over. \"Let's see if you're worth the Elder's time.\"",
+    "backdrop": "outer_courtyard",
+    "variants": [
+      { "when": {"appearance": "imposing"}, "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path — then hesitates a half-second longer than he means to. \"New blood,\" he says, recovering. \"Let's see if you're worth the Elder's time.\"" },
+      { "when": {"spiritual_root": "heretical"}, "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path, then frowns, unable to place whatever it is he's sensing off of you. \"New blood,\" he says anyway. \"Let's see if you're worth the Elder's time.\"" },
+      { "when": {"species": "demonic_bloodline"}, "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path, close enough now to catch whatever it is that makes his jaw tighten. \"New blood,\" he says. \"Let's see if you're worth the Elder's time.\"" },
+      { "when": {"wealth": "wealthy"}, "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path, eyeing the fine cut of your clothes. \"New blood,\" he says, \"and rich, too. Let's see if you're worth the Elder's time.\"" },
+      { "when": {"wealth": "destitute"}, "text": "Inside the gate, dozens of disciples spar and drill across a wide stone courtyard. One of them, a broad-shouldered youth with a sword slung across his back, breaks from his group to plant himself in your path, glancing at your threadbare clothes without bothering to hide it. \"New blood,\" he says. \"Let's see if you're worth the Elder's time.\"" }
+    ],
+    "choices": [
+      { "label": "Meet his stare without flinching.", "next": "hall_elder", "set_flags": {"rival_response": "bold"} },
+      { "label": "Give a polite nod and step past him.", "next": "hall_elder", "set_flags": {"rival_response": "humble"} }
     ]
   },
   "hall_elder": {
@@ -240,7 +255,9 @@
       { "when": {"motive": "protect"}, "text": "Months pass in a blur of bruises and calluses, every strike practiced with a face in mind that isn't your own. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — and whoever you're doing this for is lucky to have you.\" {talent_aptitude}." },
       { "when": {"spiritual_root": "heretical"}, "text": "Months pass in a blur of bruises and calluses, your tangled qi finally starting to answer the blade instead of arguing with it. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — a strange one, but a real one.\" {talent_aptitude}." },
       { "when": {"species": "demonic_bloodline"}, "text": "Months pass in a blur of bruises and calluses, and no one in the Sword Hall so much as mentions your bloodline anymore — they've seen you bleed like everyone else. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}." },
-      { "when": {"moral_alignment": "righteous"}, "text": "Months pass in a blur of bruises and calluses, each strike drilled with the same quiet conviction you started with. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — the Dao could use more like you.\" {talent_aptitude}." }
+      { "when": {"moral_alignment": "righteous"}, "text": "Months pass in a blur of bruises and calluses, each strike drilled with the same quiet conviction you started with. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — the Dao could use more like you.\" {talent_aptitude}." },
+      { "when": {"rival_response": "bold"}, "text": "Months pass in a blur of bruises and calluses. The broad-shouldered youth from your first day in the courtyard has become your fiercest sparring rival, and neither of you has won more than half your matches. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}, and somewhere across the yard, your rival is already watching, already planning the next match." },
+      { "when": {"rival_response": "humble"}, "text": "Months pass in a blur of bruises and calluses. The broad-shouldered youth who challenged you on your first day nods to you now in the halls, some old rivalry having quietly become respect. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}." }
     ],
     "choices": []
   },
@@ -253,7 +270,9 @@
       { "when": {"motive": "transcend"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, each failure just another limit you refuse to accept. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and I suspect this hall won't hold you forever.\" {talent_aptitude}." },
       { "when": {"background": "scholar"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, though you've read every scrap of theory in the hall's library twice by now. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — the theory finally caught up to the practice.\" {talent_aptitude}." },
       { "when": {"spiritual_root": "wood"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, though your formulas seem to grow steadier with each attempt, like something taking root. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." },
-      { "when": {"moral_alignment": "compassionate"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, most of them attempts at remedies for disciples too proud to visit the healer's hall. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and half this hall already owes you a favor.\" {talent_aptitude}." }
+      { "when": {"moral_alignment": "compassionate"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, most of them attempts at remedies for disciples too proud to visit the healer's hall. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and half this hall already owes you a favor.\" {talent_aptitude}." },
+      { "when": {"rival_response": "bold"}, "text": "Months pass in a haze of scorched fingertips and ruined batches. The broad-shouldered youth from your first day still swaggers past the Alchemy Hall sometimes, though he's stopped calling it \"the quiet hall\" since you nearly blew out a window. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." },
+      { "when": {"rival_response": "humble"}, "text": "Months pass in a haze of scorched fingertips and ruined batches. The broad-shouldered youth who challenged you on your first day still visits sometimes, mostly for remedies after his own training goes wrong. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." }
     ],
     "choices": []
   }

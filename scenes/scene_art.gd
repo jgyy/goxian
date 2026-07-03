@@ -20,6 +20,8 @@ func _draw() -> void:
 			_draw_sword_hall(size)
 		"alchemy_hall":
 			_draw_alchemy_hall(size)
+		"outer_courtyard":
+			_draw_outer_courtyard(size)
 		_:
 			_draw_fallback(size)
 
@@ -390,6 +392,57 @@ func _draw_alchemy_hall(size: Vector2) -> void:
 	for hx in [0.3, 0.7]:
 		draw_line(Vector2(size.x * hx, size.y * 0.15), Vector2(size.x * hx, size.y * 0.3), Color(0.3, 0.25, 0.15), 1.5)
 		draw_circle(Vector2(size.x * hx, size.y * 0.32), size.y * 0.02, Color(0.4, 0.55, 0.3))
+
+func _draw_disciple_silhouette(base: Vector2, height: float, color: Color, pose: int) -> void:
+	draw_rect(Rect2(Vector2(base.x - height * 0.06, base.y - height), Vector2(height * 0.12, height * 0.75)), color)
+	draw_circle(Vector2(base.x, base.y - height), height * 0.13, color)
+	match pose:
+		0:
+			draw_line(Vector2(base.x, base.y - height * 0.6), Vector2(base.x + height * 0.35, base.y - height * 0.85), color, height * 0.05)
+		1:
+			draw_line(Vector2(base.x - height * 0.2, base.y - height * 0.65), Vector2(base.x + height * 0.2, base.y - height * 0.65), color, height * 0.05)
+		_:
+			pass
+
+func _draw_outer_courtyard(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.55, 0.65, 0.8), Color(0.9, 0.82, 0.65))
+
+	_draw_cloud(Vector2(size.x * 0.15, size.y * 0.15), size.y * 0.04, Color(1.0, 0.95, 0.9, 0.5))
+	_draw_cloud(Vector2(size.x * 0.85, size.y * 0.12), size.y * 0.045, Color(1.0, 0.95, 0.9, 0.45))
+
+	# Courtyard stone floor
+	draw_rect(Rect2(Vector2(0, size.y * 0.78), Vector2(size.x, size.y * 0.22)), Color(0.55, 0.5, 0.42))
+	for i in range(12):
+		var lx := size.x * (float(i) / 12.0)
+		draw_line(Vector2(lx, size.y * 0.78), Vector2(lx, size.y), Color(0.4, 0.36, 0.3, 0.5), 1.5)
+
+	# Distant training hall rooftops framing the courtyard
+	var roof_l := PackedVector2Array([
+		Vector2(0, size.y * 0.55), Vector2(size.x * 0.15, size.y * 0.4), Vector2(size.x * 0.3, size.y * 0.55)
+	])
+	draw_colored_polygon(roof_l, Color(0.45, 0.2, 0.2, 0.8))
+	var roof_r := PackedVector2Array([
+		Vector2(size.x * 0.7, size.y * 0.55), Vector2(size.x * 0.85, size.y * 0.4), Vector2(size.x, size.y * 0.55)
+	])
+	draw_colored_polygon(roof_r, Color(0.45, 0.2, 0.2, 0.8))
+
+	# Sect banners along the courtyard edge
+	for bx in [0.05, 0.95]:
+		draw_rect(Rect2(Vector2(size.x * bx, size.y * 0.4), Vector2(size.y * 0.01, size.y * 0.35)), Color(0.2, 0.15, 0.1))
+		draw_rect(Rect2(Vector2(size.x * bx - size.y * 0.03, size.y * 0.42), Vector2(size.y * 0.07, size.y * 0.15)), Color(0.5, 0.15, 0.15, 0.85))
+
+	# Groups of disciples sparring/drilling in the background
+	var disciple_positions := PackedVector2Array([
+		Vector2(0.15, 0.78), Vector2(0.22, 0.8), Vector2(0.35, 0.76),
+		Vector2(0.6, 0.79), Vector2(0.68, 0.77), Vector2(0.8, 0.8)
+	])
+	for i in disciple_positions.size():
+		var p = disciple_positions[i]
+		_draw_disciple_silhouette(Vector2(size.x * p.x, size.y * p.y), size.y * 0.22, Color(0.2, 0.18, 0.22, 0.85), i % 2)
+
+	# The rival disciple, front and center, closer and larger than the rest
+	_draw_disciple_silhouette(Vector2(size.x * 0.5, size.y * 0.88), size.y * 0.35, Color(0.15, 0.13, 0.16), 0)
+	draw_line(Vector2(size.x * 0.5 - size.y * 0.02, size.y * 0.65), Vector2(size.x * 0.5 - size.y * 0.14, size.y * 0.6), Color(0.6, 0.6, 0.65), size.y * 0.015)
 
 func _draw_fallback(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.5, 0.3, 0.65), Color(0.85, 0.5, 0.55))
