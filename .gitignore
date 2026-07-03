@@ -53,3 +53,7 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Godot 4+ specific ignores
+.godot/
+*.uid
