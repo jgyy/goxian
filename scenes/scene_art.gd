@@ -1,0 +1,83 @@
+extends Control
+class_name SceneArt
+
+var _backdrop: String = "mountain_gate"
+
+func set_backdrop(key: String) -> void:
+	_backdrop = key
+	queue_redraw()
+
+func _draw() -> void:
+	var size := get_rect().size
+	match _backdrop:
+		"mountain_gate":
+			_draw_mountain_gate(size)
+		"sect_hall":
+			_draw_sect_hall(size)
+		_:
+			_draw_fallback(size)
+
+func _draw_sky_gradient(size: Vector2, top_color: Color, bottom_color: Color) -> void:
+	draw_rect(Rect2(Vector2.ZERO, size), top_color)
+	var band_count := 24
+	for i in band_count:
+		var t := float(i) / band_count
+		var c := top_color.lerp(bottom_color, t)
+		var y := size.y * t
+		var h := size.y / band_count + 1.0
+		draw_rect(Rect2(Vector2(0, y), Vector2(size.x, h)), c)
+
+func _draw_mountain_gate(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.53, 0.62, 0.75), Color(0.85, 0.78, 0.68))
+	draw_circle(Vector2(size.x * 0.8, size.y * 0.25), size.y * 0.08, Color(0.95, 0.9, 0.75, 0.9))
+
+	var back_points := PackedVector2Array([
+		Vector2(0, size.y * 0.55),
+		Vector2(size.x * 0.2, size.y * 0.35),
+		Vector2(size.x * 0.45, size.y * 0.5),
+		Vector2(size.x * 0.7, size.y * 0.3),
+		Vector2(size.x, size.y * 0.5),
+		Vector2(size.x, size.y),
+		Vector2(0, size.y)
+	])
+	draw_colored_polygon(back_points, Color(0.45, 0.5, 0.55, 0.6))
+
+	var front_points := PackedVector2Array([
+		Vector2(0, size.y * 0.75),
+		Vector2(size.x * 0.3, size.y * 0.5),
+		Vector2(size.x * 0.55, size.y * 0.7),
+		Vector2(size.x * 0.8, size.y * 0.45),
+		Vector2(size.x, size.y * 0.65),
+		Vector2(size.x, size.y),
+		Vector2(0, size.y)
+	])
+	draw_colored_polygon(front_points, Color(0.25, 0.28, 0.32))
+
+	var pillar_w := size.x * 0.04
+	var pillar_h := size.y * 0.4
+	var pillar_y := size.y - pillar_h
+	draw_rect(Rect2(Vector2(size.x * 0.35, pillar_y), Vector2(pillar_w, pillar_h)), Color(0.15, 0.1, 0.08))
+	draw_rect(Rect2(Vector2(size.x * 0.6, pillar_y), Vector2(pillar_w, pillar_h)), Color(0.15, 0.1, 0.08))
+	draw_rect(Rect2(Vector2(size.x * 0.33, pillar_y - size.y * 0.05), Vector2(size.x * 0.34, size.y * 0.05)), Color(0.15, 0.1, 0.08))
+
+func _draw_sect_hall(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.75, 0.7, 0.8), Color(0.9, 0.85, 0.75))
+	draw_rect(Rect2(Vector2(0, size.y * 0.8), Vector2(size.x, size.y * 0.2)), Color(0.35, 0.3, 0.25))
+
+	var roof_points := PackedVector2Array([
+		Vector2(size.x * 0.1, size.y * 0.45),
+		Vector2(size.x * 0.5, size.y * 0.15),
+		Vector2(size.x * 0.9, size.y * 0.45),
+		Vector2(size.x * 0.75, size.y * 0.45),
+		Vector2(size.x * 0.5, size.y * 0.3),
+		Vector2(size.x * 0.25, size.y * 0.45)
+	])
+	draw_colored_polygon(roof_points, Color(0.2, 0.15, 0.12))
+	draw_rect(Rect2(Vector2(size.x * 0.2, size.y * 0.45), Vector2(size.x * 0.6, size.y * 0.35)), Color(0.4, 0.2, 0.15))
+
+	for i in range(3):
+		var px := size.x * (0.28 + i * 0.22)
+		draw_rect(Rect2(Vector2(px, size.y * 0.5), Vector2(size.x * 0.03, size.y * 0.3)), Color(0.15, 0.1, 0.08))
+
+func _draw_fallback(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.4, 0.4, 0.45), Color(0.6, 0.6, 0.65))
