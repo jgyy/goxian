@@ -336,10 +336,10 @@ func _draw_sword_hall(size: Vector2) -> void:
 
 	# Weapon rack with practice blades, stage left
 	var rack_x := size.x * 0.12
-	draw_rect(Rect2(Vector2(rack_x, size.y * 0.55), Vector2(size.x * 0.02, size.y * 0.2)), Color(0.2, 0.15, 0.1))
+	draw_rect(Rect2(Vector2(rack_x, size.y * 0.55), Vector2(size.y * 0.015, size.y * 0.2)), Color(0.2, 0.15, 0.1))
 	for i in range(4):
-		var blade_x := rack_x - size.x * 0.03 + i * size.x * 0.018
-		draw_line(Vector2(blade_x, size.y * 0.58), Vector2(blade_x + size.x * 0.01, size.y * 0.5), Color(0.75, 0.75, 0.8), 3.0)
+		var blade_x := rack_x - size.y * 0.05 + i * size.y * 0.03
+		draw_line(Vector2(blade_x, size.y * 0.58), Vector2(blade_x + size.y * 0.015, size.y * 0.5), Color(0.75, 0.75, 0.8), 3.0)
 
 	# A training dummy, stage right
 	var dummy_x := size.x * 0.82
@@ -362,23 +362,25 @@ func _draw_alchemy_hall(size: Vector2) -> void:
 
 	# Shelving with jars, stage left and right
 	var shelf_sides: Array[float] = [0.05, 0.85]
+	var shelf_w: float = size.y * 0.5
 	for side in shelf_sides:
-		draw_rect(Rect2(Vector2(size.x * side, size.y * 0.35), Vector2(size.x * 0.1, size.y * 0.4)), Color(0.3, 0.2, 0.15))
+		draw_rect(Rect2(Vector2(size.x * side, size.y * 0.35), Vector2(shelf_w, size.y * 0.4)), Color(0.3, 0.2, 0.15))
 		for row in range(3):
 			var jar_y: float = size.y * (0.4 + row * 0.12)
 			for col in range(2):
-				var jar_x: float = size.x * side + size.x * 0.02 + col * size.x * 0.045
-				draw_rect(Rect2(Vector2(jar_x, jar_y), Vector2(size.x * 0.03, size.y * 0.08)), Color(0.5, 0.7, 0.5, 0.7))
+				var jar_x: float = size.x * side + size.y * 0.1 + col * size.y * 0.22
+				draw_rect(Rect2(Vector2(jar_x, jar_y), Vector2(size.y * 0.15, size.y * 0.08)), Color(0.5, 0.7, 0.5, 0.7))
 
 	# A central cauldron with rising steam
 	var cauldron_center := Vector2(size.x * 0.5, size.y * 0.72)
+	var cauldron_r: float = size.y * 0.13
 	draw_colored_polygon(PackedVector2Array([
-		cauldron_center + Vector2(-size.x * 0.08, 0),
-		cauldron_center + Vector2(size.x * 0.08, 0),
-		cauldron_center + Vector2(size.x * 0.06, size.y * 0.08),
-		cauldron_center + Vector2(-size.x * 0.06, size.y * 0.08)
+		cauldron_center + Vector2(-cauldron_r, 0),
+		cauldron_center + Vector2(cauldron_r, 0),
+		cauldron_center + Vector2(cauldron_r * 0.75, size.y * 0.08),
+		cauldron_center + Vector2(-cauldron_r * 0.75, size.y * 0.08)
 	]), Color(0.15, 0.12, 0.1))
-	draw_circle(cauldron_center + Vector2(0, -size.y * 0.005), size.x * 0.08, Color(0.4, 0.7, 0.5, 0.8))
+	draw_circle(cauldron_center + Vector2(0, -size.y * 0.005), cauldron_r, Color(0.4, 0.7, 0.5, 0.8))
 
 	for i in range(3):
 		var t := float(i) / 3.0
