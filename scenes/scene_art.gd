@@ -48,6 +48,25 @@ func _draw_lantern(center: Vector2, scale: float, glow_color: Color) -> void:
 func _draw_mist_band(size: Vector2, y_ratio: float, height_ratio: float, color: Color) -> void:
 	draw_rect(Rect2(Vector2(0, size.y * y_ratio), Vector2(size.x, size.y * height_ratio)), color)
 
+func _draw_waterfall(top: Vector2, width: float, height: float) -> void:
+	draw_rect(Rect2(top, Vector2(width, height)), Color(0.85, 0.9, 0.95, 0.5))
+	for i in range(6):
+		var t := float(i) / 6.0
+		draw_line(top + Vector2(width * t, 0), top + Vector2(width * t, height), Color(1.0, 1.0, 1.0, 0.3), 1.5)
+	draw_circle(top + Vector2(width * 0.5, height), width * 0.6, Color(0.85, 0.9, 0.95, 0.35))
+
+func _draw_petal(center: Vector2, scale: float, color: Color) -> void:
+	draw_circle(center, scale, color)
+	draw_circle(center + Vector2(scale * 0.6, -scale * 0.2), scale * 0.5, color)
+
+func _draw_pond(center: Vector2, radius: Vector2, color: Color) -> void:
+	var points := PackedVector2Array()
+	for i in range(24):
+		var a := (float(i) / 24.0) * TAU
+		points.append(center + Vector2(cos(a) * radius.x, sin(a) * radius.y))
+	draw_colored_polygon(points, color)
+	draw_circle(center + Vector2(radius.x * 0.2, -radius.y * 0.1), radius.x * 0.08, Color(1.0, 1.0, 1.0, 0.4))
+
 func _draw_bamboo(base: Vector2, height: float, color: Color) -> void:
 	draw_line(base, base - Vector2(0, height), color, 4.0)
 	var segments := 4
@@ -96,6 +115,9 @@ func _draw_mountain_gate(size: Vector2) -> void:
 		Vector2(0, size.y)
 	])
 	draw_colored_polygon(back_points, Color(0.35, 0.3, 0.55, 0.7))
+
+	# A distant waterfall cascading down the back mountain
+	_draw_waterfall(Vector2(size.x * 0.12, size.y * 0.4), size.x * 0.02, size.y * 0.18)
 
 	# Mist band between the mountain layers
 	_draw_mist_band(size, 0.55, 0.06, Color(1.0, 0.95, 0.9, 0.2))
@@ -197,6 +219,18 @@ func _draw_sect_hall(size: Vector2) -> void:
 		var t := float(i) / 4.0
 		draw_circle(Vector2(size.x * 0.5 + sin(t * 6.0) * 4.0, size.y * (0.6 - t * 0.1)), 2.5 - t * 1.5, Color(0.9, 0.9, 0.9, 0.3 - t * 0.05))
 
+	# A small koi pond in the foreground courtyard
+	_draw_pond(Vector2(size.x * 0.12, size.y * 0.9), Vector2(size.x * 0.08, size.y * 0.025), Color(0.25, 0.3, 0.55, 0.7))
+	_draw_pond(Vector2(size.x * 0.88, size.y * 0.92), Vector2(size.x * 0.06, size.y * 0.02), Color(0.25, 0.3, 0.55, 0.7))
+
+	# Cherry blossom petals drifting down past the hall
+	var petal_positions := PackedVector2Array([
+		Vector2(0.15, 0.2), Vector2(0.35, 0.55), Vector2(0.6, 0.35),
+		Vector2(0.82, 0.6), Vector2(0.25, 0.72), Vector2(0.68, 0.15)
+	])
+	for p in petal_positions:
+		_draw_petal(Vector2(size.x * p.x, size.y * p.y), size.y * 0.008, Color(1.0, 0.8, 0.85, 0.85))
+
 func _draw_character_creation(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.1, 0.08, 0.3), Color(0.55, 0.25, 0.55))
 
@@ -249,6 +283,21 @@ func _draw_character_creation(size: Vector2) -> void:
 	_draw_bamboo(Vector2(size.x * 0.14, size.y * 0.9), size.y * 0.22, Color(0.08, 0.1, 0.12))
 	_draw_bamboo(Vector2(size.x * 0.92, size.y * 0.88), size.y * 0.26, Color(0.08, 0.1, 0.12))
 
+	# A distant torii-style arch, half-glimpsed on the ridge, hinting at the path ahead
+	var torii_x := size.x * 0.22
+	var torii_y := size.y * 0.62
+	draw_rect(Rect2(Vector2(torii_x - size.x * 0.05, torii_y), Vector2(size.x * 0.008, size.y * 0.08)), Color(0.08, 0.05, 0.1, 0.8))
+	draw_rect(Rect2(Vector2(torii_x + size.x * 0.05, torii_y), Vector2(size.x * 0.008, size.y * 0.08)), Color(0.08, 0.05, 0.1, 0.8))
+	draw_rect(Rect2(Vector2(torii_x - size.x * 0.06, torii_y - size.y * 0.015), Vector2(size.x * 0.12, size.y * 0.012)), Color(0.08, 0.05, 0.1, 0.8))
+
+	# Falling petals drifting past, catching the moonlight
+	var petal_positions := PackedVector2Array([
+		Vector2(0.2, 0.35), Vector2(0.35, 0.55), Vector2(0.6, 0.4),
+		Vector2(0.72, 0.58), Vector2(0.85, 0.45)
+	])
+	for p in petal_positions:
+		_draw_petal(Vector2(size.x * p.x, size.y * p.y), size.y * 0.007, Color(0.9, 0.85, 1.0, 0.6))
+
 	# Fireflies / floating spirit motes drifting near the figure
 	var motes := PackedVector2Array([
 		Vector2(0.42, 0.7), Vector2(0.58, 0.68), Vector2(0.48, 0.78), Vector2(0.53, 0.6)
@@ -266,3 +315,12 @@ func _draw_fallback(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.5, 0.3, 0.65), Color(0.85, 0.5, 0.55))
 	_draw_cloud(Vector2(size.x * 0.3, size.y * 0.25), size.y * 0.05, Color(1.0, 0.9, 0.9, 0.4))
 	_draw_cloud(Vector2(size.x * 0.7, size.y * 0.35), size.y * 0.04, Color(1.0, 0.9, 0.9, 0.35))
+	var far_points := PackedVector2Array([
+		Vector2(0, size.y * 0.7),
+		Vector2(size.x * 0.3, size.y * 0.5),
+		Vector2(size.x * 0.6, size.y * 0.65),
+		Vector2(size.x, size.y * 0.55),
+		Vector2(size.x, size.y),
+		Vector2(0, size.y)
+	])
+	draw_colored_polygon(far_points, Color(0.3, 0.2, 0.4, 0.6))
