@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/game_screen.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/scene_art.tscn" id="2"]
+
+[node name="GameScreen" type="Control"]
+layout_mode=3
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+script=ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+
+[node name="SceneArt" parent="VBox" instance=ExtResource("2")]
+layout_mode=2
+custom_minimum_size=Vector2(0, 220)
+size_flags_vertical=3
+
+[node name="StoryLog" type="RichTextLabel" parent="VBox"]
+layout_mode=2
+size_flags_vertical=3
+bbcode_enabled=true
+scroll_following=true
+
+[node name="ChoicesBox" type="VBoxContainer" parent="VBox"]
+layout_mode=2
