@@ -22,6 +22,8 @@ func _draw() -> void:
 			_draw_alchemy_hall(size)
 		"outer_courtyard":
 			_draw_outer_courtyard(size)
+		"wilderness_ruins":
+			_draw_wilderness_ruins(size)
 		_:
 			_draw_fallback(size)
 
@@ -445,6 +447,60 @@ func _draw_outer_courtyard(size: Vector2) -> void:
 	# The rival disciple, front and center, closer and larger than the rest
 	_draw_disciple_silhouette(Vector2(size.x * 0.5, size.y * 0.88), size.y * 0.35, Color(0.15, 0.13, 0.16), 0)
 	draw_line(Vector2(size.x * 0.5 - size.y * 0.02, size.y * 0.65), Vector2(size.x * 0.5 - size.y * 0.14, size.y * 0.6), Color(0.6, 0.6, 0.65), size.y * 0.015)
+
+func _draw_ruined_pillar(base: Vector2, height: float, color: Color) -> void:
+	draw_rect(Rect2(Vector2(base.x - height * 0.09, base.y - height), Vector2(height * 0.18, height)), color)
+	# Broken, jagged top instead of a clean rectangle
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(base.x - height * 0.09, base.y - height),
+		Vector2(base.x - height * 0.02, base.y - height * 1.12),
+		Vector2(base.x + height * 0.06, base.y - height * 1.0),
+		Vector2(base.x + height * 0.09, base.y - height)
+	]), color)
+
+func _draw_wilderness_ruins(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.35, 0.42, 0.4), Color(0.65, 0.55, 0.4))
+
+	_draw_mist_band(size, 0.35, 0.08, Color(0.9, 0.9, 0.85, 0.2))
+
+	# Dense wild treeline, back layer
+	var treeline_points := PackedVector2Array([
+		Vector2(0, size.y * 0.55),
+		Vector2(size.x * 0.2, size.y * 0.42),
+		Vector2(size.x * 0.4, size.y * 0.52),
+		Vector2(size.x * 0.6, size.y * 0.4),
+		Vector2(size.x * 0.8, size.y * 0.5),
+		Vector2(size.x, size.y * 0.44),
+		Vector2(size.x, size.y),
+		Vector2(0, size.y)
+	])
+	draw_colored_polygon(treeline_points, Color(0.15, 0.22, 0.15, 0.75))
+
+	# Overgrown forest floor
+	draw_rect(Rect2(Vector2(0, size.y * 0.78), Vector2(size.x, size.y * 0.22)), Color(0.25, 0.28, 0.18))
+
+	# Ruined pillars of a long-forgotten sect, half-swallowed by the wild
+	_draw_ruined_pillar(Vector2(size.x * 0.18, size.y * 0.78), size.y * 0.35, Color(0.35, 0.33, 0.3))
+	_draw_ruined_pillar(Vector2(size.x * 0.82, size.y * 0.78), size.y * 0.28, Color(0.32, 0.3, 0.28))
+
+	# A cracked stone archway, centerpiece of the ruins
+	var arch_x := size.x * 0.5
+	var arch_h: float = size.y * 0.4
+	draw_rect(Rect2(Vector2(arch_x - size.y * 0.18, size.y * 0.78 - arch_h), Vector2(size.y * 0.04, arch_h)), Color(0.3, 0.28, 0.25))
+	draw_rect(Rect2(Vector2(arch_x + size.y * 0.14, size.y * 0.78 - arch_h), Vector2(size.y * 0.04, arch_h)), Color(0.3, 0.28, 0.25))
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(arch_x - size.y * 0.2, size.y * 0.78 - arch_h),
+		Vector2(arch_x, size.y * 0.78 - arch_h * 1.25),
+		Vector2(arch_x + size.y * 0.2, size.y * 0.78 - arch_h)
+	]), Color(0.3, 0.28, 0.25))
+
+	# Vines creeping up the ruins
+	for vx in [0.18, 0.5, 0.82]:
+		draw_line(Vector2(size.x * vx, size.y * 0.78), Vector2(size.x * vx + size.y * 0.03, size.y * 0.6), Color(0.2, 0.35, 0.15, 0.7), 2.0)
+
+	# A faint, warm glow low in the ruins — the wounded creature's presence
+	draw_circle(Vector2(arch_x, size.y * 0.75), size.y * 0.05, Color(0.9, 0.75, 0.5, 0.35))
+	draw_circle(Vector2(arch_x, size.y * 0.75), size.y * 0.025, Color(1.0, 0.9, 0.7, 0.5))
 
 func _draw_fallback(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.5, 0.3, 0.65), Color(0.85, 0.5, 0.55))

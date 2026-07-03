@@ -200,8 +200,8 @@
       { "when": {"species": "half_spirit_beast"}, "text": "You choose the Sword Hall. The instructor tosses you a practice blade, watching the way your body moves like it already half-expects a fight. \"Bold ones burn out fast here,\" she says. \"You might last longer than most.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." }
     ],
     "choices": [
-      { "label": "Train relentlessly, ignoring the pain.", "next": "final_sword", "set_flags": {"training_style": "relentless"} },
-      { "label": "Train diligently, but rest when your body demands it.", "next": "final_sword", "set_flags": {"training_style": "balanced"} }
+      { "label": "Train relentlessly, ignoring the pain.", "next": "training_complete_sword", "set_flags": {"training_style": "relentless"} },
+      { "label": "Train diligently, but rest when your body demands it.", "next": "training_complete_sword", "set_flags": {"training_style": "balanced"} }
     ]
   },
   "ending_alchemy_bold": {
@@ -214,8 +214,8 @@
       { "when": {"moral_alignment": "compassionate"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"Good. This hall exists to heal people, not just to make people who hurt other people more efficient.\" {talent_aptitude}, you begin grinding your first ingredient." }
     ],
     "choices": [
-      { "label": "Experiment boldly with unproven mixtures.", "next": "final_alchemy", "set_flags": {"training_style": "bold"} },
-      { "label": "Follow the old formulas precisely.", "next": "final_alchemy", "set_flags": {"training_style": "careful"} }
+      { "label": "Experiment boldly with unproven mixtures.", "next": "training_complete_alchemy", "set_flags": {"training_style": "bold"} },
+      { "label": "Follow the old formulas precisely.", "next": "training_complete_alchemy", "set_flags": {"training_style": "careful"} }
     ]
   },
   "ending_sword_cautious": {
@@ -228,8 +228,8 @@
       { "when": {"background": "scholar"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, amused that someone who clearly prefers books chose this hall at all. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." }
     ],
     "choices": [
-      { "label": "Train relentlessly, ignoring the pain.", "next": "final_sword", "set_flags": {"training_style": "relentless"} },
-      { "label": "Train diligently, but rest when your body demands it.", "next": "final_sword", "set_flags": {"training_style": "balanced"} }
+      { "label": "Train relentlessly, ignoring the pain.", "next": "training_complete_sword", "set_flags": {"training_style": "relentless"} },
+      { "label": "Train diligently, but rest when your body demands it.", "next": "training_complete_sword", "set_flags": {"training_style": "balanced"} }
     ]
   },
   "ending_alchemy_cautious": {
@@ -242,11 +242,11 @@
       { "when": {"wealth": "modest"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, noting the practical, unshowy way you handle it. \"Alchemy rewards patience, not bravado,\" he says. {talent_aptitude}, you begin grinding your first ingredient." }
     ],
     "choices": [
-      { "label": "Experiment boldly with unproven mixtures.", "next": "final_alchemy", "set_flags": {"training_style": "bold"} },
-      { "label": "Follow the old formulas precisely.", "next": "final_alchemy", "set_flags": {"training_style": "careful"} }
+      { "label": "Experiment boldly with unproven mixtures.", "next": "training_complete_alchemy", "set_flags": {"training_style": "bold"} },
+      { "label": "Follow the old formulas precisely.", "next": "training_complete_alchemy", "set_flags": {"training_style": "careful"} }
     ]
   },
-  "final_sword": {
+  "training_complete_sword": {
     "text": "Months pass in a blur of bruises and calluses. One morning, the scarred instructor watches you complete the thousandth-and-first strike without correction, and simply nods. \"You're a swordsman of Azure Cloud Sect now,\" she says. {talent_aptitude}, and the blade finally feels like part of your arm rather than a tool in your hand.",
     "backdrop": "sword_hall",
     "variants": [
@@ -259,9 +259,11 @@
       { "when": {"rival_response": "bold"}, "text": "Months pass in a blur of bruises and calluses. The broad-shouldered youth from your first day in the courtyard has become your fiercest sparring rival, and neither of you has won more than half your matches. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}, and somewhere across the yard, your rival is already watching, already planning the next match." },
       { "when": {"rival_response": "humble"}, "text": "Months pass in a blur of bruises and calluses. The broad-shouldered youth who challenged you on your first day nods to you now in the halls, some old rivalry having quietly become respect. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}." }
     ],
-    "choices": []
+    "choices": [
+      { "label": "Volunteer for the sect's next patrol into the borderlands.", "next": "mission_call_sword" }
+    ]
   },
-  "final_alchemy": {
+  "training_complete_alchemy": {
     "text": "Months pass in a haze of scorched fingertips and ruined batches. One afternoon, the old instructor tastes a pill you've brewed, raises his eyebrows, and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now,\" he says. {talent_aptitude}, and the mortar and pestle finally feel like an extension of your hands rather than borrowed tools.",
     "backdrop": "alchemy_hall",
     "variants": [
@@ -273,6 +275,70 @@
       { "when": {"moral_alignment": "compassionate"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, most of them attempts at remedies for disciples too proud to visit the healer's hall. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and half this hall already owes you a favor.\" {talent_aptitude}." },
       { "when": {"rival_response": "bold"}, "text": "Months pass in a haze of scorched fingertips and ruined batches. The broad-shouldered youth from your first day still swaggers past the Alchemy Hall sometimes, though he's stopped calling it \"the quiet hall\" since you nearly blew out a window. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." },
       { "when": {"rival_response": "humble"}, "text": "Months pass in a haze of scorched fingertips and ruined batches. The broad-shouldered youth who challenged you on your first day still visits sometimes, mostly for remedies after his own training goes wrong. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." }
+    ],
+    "choices": [
+      { "label": "Volunteer to supply the sect's next patrol into the borderlands.", "next": "mission_call_alchemy" }
+    ]
+  },
+  "mission_call_sword": {
+    "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road, and Elder Wren is sending a patrol of junior disciples to investigate. You volunteer without a second thought, blade already at your hip.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road, and Elder Wren is sending a patrol of junior disciples to investigate. You volunteer before she finishes the sentence — this is exactly the kind of thing you came here to stop." },
+      { "when": {"rival_response": "bold"}, "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road. Your old rival is already on the volunteer list when you arrive to add your name, and neither of you says anything about it, though you both notice." },
+      { "when": {"birth_location": "borderlands"}, "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road you know all too well. You volunteer immediately — you know that road better than anyone else Elder Wren could send." }
+    ],
+    "choices": [
+      { "label": "Track the creature by its trail, alone if you must.", "next": "mission_sword_direct", "set_flags": {"mission_style": "direct"} },
+      { "label": "Wait with the group and strike together, as a unit.", "next": "mission_sword_group", "set_flags": {"mission_style": "group"} }
+    ]
+  },
+  "mission_call_alchemy": {
+    "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road, and Elder Wren is sending a patrol of junior disciples to investigate. You volunteer to go with them — whatever it is, it may leave wounds nobody else in the patrol knows how to treat.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"moral_alignment": "compassionate"}, "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road. You volunteer before anyone asks — if there are survivors out there, they'll need a healer more than another sword." },
+      { "when": {"training_style": "bold"}, "text": "A courier arrives at dawn: something has been picking off travelers along the borderland road. You pack a satchel of half-tested formulas anyway — if the sect won't let you test them on a real threat, what's the point of having made them." }
+    ],
+    "choices": [
+      { "label": "Brew a dangerous countermeasure and hope it works.", "next": "mission_alchemy_bold", "set_flags": {"mission_style": "bold"} },
+      { "label": "Rely on proven remedies, however slow.", "next": "mission_alchemy_careful", "set_flags": {"mission_style": "careful"} }
+    ]
+  },
+  "mission_sword_direct": {
+    "text": "You leave the patrol behind and follow the trail alone, blade drawn, into a valley choked with the ruins of some older, forgotten sect. What you find there — a wounded but very much alive spirit-beast, more frightened than feral — isn't what anyone expected. {talent_aptitude}, you make the call the rest of the patrol wasn't there to make.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"moral_alignment": "compassionate"}, "text": "You leave the patrol behind and follow the trail alone into a valley choked with old ruins. What you find isn't a monster at all — a wounded spirit-beast, more frightened than feral, its side torn open by something else entirely. {talent_aptitude}, you lower your blade instead of raising it." },
+      { "when": {"moral_alignment": "ruthless"}, "text": "You leave the patrol behind and follow the trail alone into a valley choked with old ruins. What you find is a wounded spirit-beast — an easy kill, and proof enough to bring back alone. {talent_aptitude}, you don't hesitate." },
+      { "when": {"species": "half_spirit_beast"}, "text": "You leave the patrol behind and follow the trail alone into a valley choked with old ruins. What you find is a wounded spirit-beast, and something in you recognizes something in it before your blade ever clears its sheath. {talent_aptitude}, you make a choice the rest of the patrol will never fully understand." }
+    ],
+    "choices": []
+  },
+  "mission_sword_group": {
+    "text": "You stay with the patrol, and together you corner the creature in the ruins of some older, forgotten sect — a wounded spirit-beast, more frightened than feral. Six blades is more than enough to end it, or, if someone speaks first, more than enough to spare it. {talent_aptitude}, the patrol looks to you as much as to anyone.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"rival_response": "bold"}, "text": "You stay with the patrol, and together you corner the creature — a wounded spirit-beast, more frightened than feral. Your old rival is the one who hesitates first, and you realize, watching him, how much you've both changed since the courtyard. {talent_aptitude}." },
+      { "when": {"moral_alignment": "righteous"}, "text": "You stay with the patrol, and together you corner the wounded spirit-beast. You're the one who finally says the word \"wait\" out loud, and — a little surprised — the others actually do. {talent_aptitude}." }
+    ],
+    "choices": []
+  },
+  "mission_alchemy_bold": {
+    "text": "You brew a countermeasure from a formula you're not entirely sure is safe, and administer it to the wounded creature the patrol finds cornered in the ruins — a spirit-beast, not a monster, bleeding out from a wound no one else can treat. It works. Barely. {talent_aptitude}, and you'll be more careful about \"barely\" next time. Maybe.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"moral_alignment": "compassionate"}, "text": "You brew a countermeasure from an untested formula and administer it to the wounded spirit-beast the patrol finds cornered in the ruins. It works, and the relief on its inhuman face is not something you expected to recognize so easily. {talent_aptitude}." },
+      { "when": {"rival_response": "humble"}, "text": "You brew a countermeasure from an untested formula. Your old rival — no longer quite a rival — is the one who holds the creature still while you administer it. It works. {talent_aptitude}." }
+    ],
+    "choices": []
+  },
+  "mission_alchemy_careful": {
+    "text": "You rely on proven remedies, slower but certain, and by the time the patrol reaches the wounded creature cornered in the ruins — a spirit-beast, not a monster — you already know exactly what it needs. {talent_aptitude}, and for once, patience wins the day outright.",
+    "backdrop": "wilderness_ruins",
+    "variants": [
+      { "when": {"training_style": "careful"}, "text": "You rely on proven remedies, exactly as you were taught, and by the time the patrol reaches the wounded creature you already know exactly what it needs. {talent_aptitude}, precise as always." },
+      { "when": {"background": "scholar"}, "text": "You rely on proven remedies, cross-referenced twice against old texts before you ever leave the sect. By the time the patrol reaches the wounded creature, you already know exactly what it needs. {talent_aptitude}." }
     ],
     "choices": []
   }
