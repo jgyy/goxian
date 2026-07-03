@@ -8,7 +8,7 @@ config_version=5
 
 config/name="Goxian"
 config/description="A xianxia text adventure"
-run/main_scene=""
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
