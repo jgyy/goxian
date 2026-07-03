@@ -19,3 +19,4 @@ renderer/rendering_method="gl_compatibility"
 [autoload]
 
 ProfileManager="*res://autoload/profile_manager.gd"
+StoryManager="*res://autoload/story_manager.gd"

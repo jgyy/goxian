@@ -1,0 +1,64 @@
+{
+  "start": {
+    "text": "Dawn mist curls around the stone steps of Azure Cloud Sect. You have walked three days to reach this gate, and today is the entrance trial. A stern disciple blocks your path.\n\n\"State your reason for seeking the Dao,\" she says. Even now, {spiritual_root}.",
+    "backdrop": "mountain_gate",
+    "choices": [
+      { "label": "\"I seek strength to protect those I love.\"", "next": "answer_protect", "set_flags": {"motive": "protect"} },
+      { "label": "\"I seek to transcend my mortal limits.\"", "next": "answer_transcend", "set_flags": {"motive": "transcend"} },
+      { "label": "Say nothing, and let your bearing answer for you.", "next": "answer_heretical", "requires_profile": {"name": "spiritual_root", "equals": "heretical"} }
+    ]
+  },
+  "answer_protect": {
+    "text": "The disciple's eyes soften slightly. \"A common answer, but an honest one.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"",
+    "backdrop": "mountain_gate",
+    "choices": [
+      { "label": "Enter the sect.", "next": "hall_elder" }
+    ]
+  },
+  "answer_transcend": {
+    "text": "The disciple studies you a long moment. \"Ambition. Dangerous, but useful.\" She steps aside. \"Enter. The Elder awaits in the Hall of Falling Blossoms.\"",
+    "backdrop": "mountain_gate",
+    "choices": [
+      { "label": "Enter the sect.", "next": "hall_elder" }
+    ]
+  },
+  "answer_heretical": {
+    "text": "The disciple frowns, unsettled — the tangled resonance coming off you answers a question you never spoke aloud. \"...Enter,\" she says finally, watching you a beat too long. \"The Elder will want to see you personally.\"",
+    "backdrop": "mountain_gate",
+    "choices": [
+      { "label": "Enter the sect.", "next": "hall_elder" }
+    ]
+  },
+  "hall_elder": {
+    "text": "Elder Wren regards you from atop a dais carved like a coiled dragon. \"Every generation, one outsider is given a trial stone. Hold it, and it will show me your heart.\" She offers a smooth grey stone. You remember, briefly, that {background}.",
+    "backdrop": "sect_hall",
+    "choices": [
+      { "label": "Take the stone without hesitation.", "next": "trial_bold" },
+      { "label": "Ask what happens if you refuse.", "next": "trial_cautious", "set_flags": {"cautious": true} }
+    ]
+  },
+  "trial_bold": {
+    "text": "You grasp the stone. It flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear.\"",
+    "backdrop": "sect_hall",
+    "choices": [
+      { "label": "Ask to begin training.", "next": "ending_bold" }
+    ]
+  },
+  "trial_cautious": {
+    "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"",
+    "backdrop": "sect_hall",
+    "choices": [
+      { "label": "Ask to begin training.", "next": "ending_cautious" }
+    ]
+  },
+  "ending_bold": {
+    "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and driven by a heart that seeks strength above all.",
+    "backdrop": "sect_hall",
+    "choices": []
+  },
+  "ending_cautious": {
+    "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}.",
+    "backdrop": "sect_hall",
+    "choices": []
+  }
+}
