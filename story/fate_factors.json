@@ -1,0 +1,122 @@
+{
+  "gender": {
+    "label": "Gender",
+    "options": [
+      { "id": "male", "label": "Male", "snippet": "a young man" },
+      { "id": "female", "label": "Female", "snippet": "a young woman" },
+      { "id": "nonbinary", "label": "Non-binary", "snippet": "someone who has never fit neatly into the village's old words" }
+    ]
+  },
+  "age": {
+    "label": "Age",
+    "options": [
+      { "id": "child", "label": "Child", "snippet": "small for the trial, and painfully aware of it" },
+      { "id": "youth", "label": "Youth", "snippet": "young enough that the elders still call you 'little one'" },
+      { "id": "young_adult", "label": "Young Adult", "snippet": "at the age most cultivators begin, neither too early nor too late" },
+      { "id": "middle_aged", "label": "Middle-aged", "snippet": "older than most who stand at this gate, and you feel every year of it" },
+      { "id": "elder", "label": "Elder", "snippet": "gray-haired among disciples half your age, here anyway" }
+    ]
+  },
+  "background": {
+    "label": "Background",
+    "options": [
+      { "id": "orphan", "label": "Orphan", "snippet": "you have no family name to offer, only yourself" },
+      { "id": "merchant", "label": "Merchant Family", "snippet": "your family's coin bought you the road here, if nothing else" },
+      { "id": "farming", "label": "Farming Family", "snippet": "your hands still remember the calluses of the family field" },
+      { "id": "fallen_noble", "label": "Fallen Noble House", "snippet": "your house's name once meant something, before it didn't" },
+      { "id": "performer", "label": "Wandering Performer", "snippet": "you learned to read a crowd before you learned to read words" },
+      { "id": "scholar", "label": "Scholar's Household", "snippet": "you were raised on ink and old texts, not swords" }
+    ]
+  },
+  "spiritual_root": {
+    "label": "Spiritual Root",
+    "options": [
+      { "id": "fire", "label": "Fire", "snippet": "warmth radiates faintly from your core, like a banked coal" },
+      { "id": "water", "label": "Water", "snippet": "a cool stillness pools beneath your ribs" },
+      { "id": "wood", "label": "Wood", "snippet": "something in you grows quietly, patient as a root in soil" },
+      { "id": "metal", "label": "Metal", "snippet": "a faint, hard resonance hums beneath your skin like struck iron" },
+      { "id": "earth", "label": "Earth", "snippet": "a heavy, grounded weight settles behind your sternum" },
+      { "id": "heretical", "label": "Heretical (multi-element)", "snippet": "too many elements answer you at once, tangled and unruly" },
+      { "id": "void", "label": "Void (near-zero root)", "snippet": "almost nothing answers when you reach inward, an unsettling quiet" }
+    ]
+  },
+  "wealth": {
+    "label": "Wealth",
+    "options": [
+      { "id": "destitute", "label": "Destitute", "snippet": "you own nothing but the clothes on your back" },
+      { "id": "modest", "label": "Modest", "snippet": "you carry just enough coin to not worry about tonight" },
+      { "id": "comfortable", "label": "Comfortable", "snippet": "you have never gone hungry, and it shows" },
+      { "id": "wealthy", "label": "Wealthy", "snippet": "the silk at your collar marks you before you speak a word" },
+      { "id": "hidden_fortune", "label": "Hidden Fortune", "snippet": "you carry more wealth than anyone here would guess to look at you" }
+    ]
+  },
+  "moral_alignment": {
+    "label": "Moral Alignment",
+    "options": [
+      { "id": "righteous", "label": "Righteous", "snippet": "you believe the Dao should be earned honestly, or not at all" },
+      { "id": "pragmatic", "label": "Pragmatic", "snippet": "you believe results matter more than the path taken to them" },
+      { "id": "ruthless", "label": "Ruthless", "snippet": "you have already decided that mercy is a debt you cannot afford" },
+      { "id": "compassionate", "label": "Compassionate", "snippet": "you cannot help but notice the suffering of those around you" },
+      { "id": "detached", "label": "Detached", "snippet": "you watch the world's troubles the way one watches weather" }
+    ]
+  },
+  "species": {
+    "label": "Species",
+    "options": [
+      { "id": "human", "label": "Human", "snippet": "your blood is plain and human, for whatever that is worth here" },
+      { "id": "half_spirit_beast", "label": "Half-Spirit-Beast", "snippet": "something ancient and feral stirs faintly beneath your human shape" },
+      { "id": "demonic_bloodline", "label": "Demonic Bloodline", "snippet": "a bloodline the sects would call demonic runs quiet in your veins" },
+      { "id": "reincarnated_soul", "label": "Reincarnated Soul", "snippet": "fragments of a life not your own surface at the strangest moments" }
+    ]
+  },
+  "birth_location": {
+    "label": "Birth Location",
+    "options": [
+      { "id": "mountain_village", "label": "Remote Mountain Village", "snippet": "you grew up where the mountains kept the world at a distance" },
+      { "id": "bustling_city", "label": "Bustling City", "snippet": "you grew up in noise and crowds, never silence" },
+      { "id": "sect_territory", "label": "Sect Territory", "snippet": "you grew up in the shadow of cultivators, always looking up" },
+      { "id": "borderlands", "label": "Borderlands Near Wilds", "snippet": "you grew up close enough to the wilds to know their smell before a storm" },
+      { "id": "trade_barge", "label": "Floating Trade Barge", "snippet": "you grew up with the world sliding past beneath a barge's deck" }
+    ]
+  },
+  "family_relationships": {
+    "label": "Family Relationships",
+    "options": [
+      { "id": "loving_family", "label": "Loving Family", "snippet": "a family waits for your letters, worried and warm" },
+      { "id": "estranged_family", "label": "Estranged Family", "snippet": "you left words unsaid to a family you may never see again" },
+      { "id": "sole_survivor", "label": "Sole Survivor", "snippet": "you are the only one left of the family you were born into" },
+      { "id": "clan_obligations", "label": "Large Clan Obligations", "snippet": "a sprawling clan's expectations ride on your shoulders here" },
+      { "id": "adoptive_family", "label": "Adoptive Family", "snippet": "the family that raised you shares none of your blood, and all of your loyalty" }
+    ]
+  },
+  "fengshui_omen": {
+    "label": "Fengshui Omen",
+    "options": [
+      { "id": "auspicious", "label": "Auspicious Birth", "snippet": "you were born beneath signs the local diviner called auspicious" },
+      { "id": "cursed", "label": "Cursed Birth", "snippet": "you were born beneath signs the local diviner refused to fully explain" },
+      { "id": "neutral", "label": "Neutral", "snippet": "no omen marked your birth one way or the other" },
+      { "id": "twin_star", "label": "Twin-Star Omen", "snippet": "a diviner once told your family a rival or ally is fated to mirror your path" },
+      { "id": "unreadable", "label": "Unreadable Fate", "snippet": "every diviner who has tried to read your fate has simply gone quiet" }
+    ]
+  },
+  "appearance": {
+    "label": "Appearance",
+    "options": [
+      { "id": "striking", "label": "Striking", "snippet": "people's eyes catch on you and linger a moment too long" },
+      { "id": "plain", "label": "Plain", "snippet": "you have the kind of face people forget within the hour" },
+      { "id": "unsettling", "label": "Unsettling", "snippet": "something about your bearing makes strangers take half a step back" },
+      { "id": "delicate", "label": "Delicate", "snippet": "you look like something easily broken, whether or not that's true" },
+      { "id": "imposing", "label": "Imposing", "snippet": "you take up more space in a room than your frame should allow" }
+    ]
+  },
+  "talent_aptitude": {
+    "label": "Talent Aptitude",
+    "options": [
+      { "id": "slow_steady", "label": "Slow but Steady", "snippet": "you have never learned anything quickly, but you have never unlearned it either" },
+      { "id": "prodigy", "label": "Prodigy", "snippet": "things that take others years have always come to you in weeks" },
+      { "id": "late_bloomer", "label": "Late Bloomer", "snippet": "you suspect your real talent hasn't shown itself yet" },
+      { "id": "one_trick_genius", "label": "One-Trick Genius", "snippet": "you are astonishing at exactly one thing, and unremarkable at everything else" },
+      { "id": "balanced", "label": "Balanced", "snippet": "you are competent at nearly everything, exceptional at nothing" }
+    ]
+  }
+}
