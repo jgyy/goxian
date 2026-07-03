@@ -113,7 +113,7 @@
       { "when": {"wealth": "destitute"}, "text": "You grasp the stone — the first thing of any worth you've held in a long while — and it flares white-hot for an instant, then cools. Elder Wren nods slowly. \"Bold. The stone shows a heart unclouded by fear.\"" }
     ],
     "choices": [
-      { "label": "Ask to begin training.", "next": "ending_bold" }
+      { "label": "Ask to begin training.", "next": "arrival_bold" }
     ]
   },
   "trial_cautious": {
@@ -132,10 +132,10 @@
       { "when": {"wealth": "comfortable"}, "text": "\"Refuse, and you may leave in peace, empty-handed,\" Elder Wren says. You weigh the stone in your palm, aware that you have less to lose than most who stand here, before finally accepting it. It flares, then dims. \"Caution paired with resolve. Rarer than you'd think.\"" }
     ],
     "choices": [
-      { "label": "Ask to begin training.", "next": "ending_cautious" }
+      { "label": "Ask to begin training.", "next": "arrival_cautious" }
     ]
   },
-  "ending_bold": {
+  "arrival_bold": {
     "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and driven by a heart that seeks strength above all.",
     "backdrop": "sect_hall",
     "variants": [
@@ -150,9 +150,12 @@
       { "when": {"wealth": "wealthy"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, though for the first time in your life, none of it can be bought." },
       { "when": {"fengshui_omen": "twin_star"}, "text": "You are led to the outer courtyard, where forty other disciples drill under the morning sun. Your journey as a cultivator of Azure Cloud Sect begins today — {talent_aptitude}, and somewhere out there, you can't shake the feeling that someone else's journey just began too." }
     ],
-    "choices": []
+    "choices": [
+      { "label": "Ask to join the Sword Hall.", "next": "ending_sword_bold", "set_flags": {"path": "sword"} },
+      { "label": "Ask to join the Alchemy Hall.", "next": "ending_alchemy_bold", "set_flags": {"path": "alchemy"} }
+    ]
   },
-  "ending_cautious": {
+  "arrival_cautious": {
     "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}.",
     "backdrop": "sect_hall",
     "variants": [
@@ -166,6 +169,53 @@
       { "when": {"birth_location": "borderlands"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"You already know how to read a threat before it arrives — now learn to read a teacher the same way.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
       { "when": {"wealth": "modest"}, "text": "Elder Wren walks with you personally to the outer courtyard. \"Watch, listen, then act,\" she says. \"You've clearly learned to make little go a long way — this will be no different.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." },
       { "when": {"fengshui_omen": "unreadable"}, "text": "Elder Wren walks with you personally to the outer courtyard, glancing at you once more, as if still trying to solve something. \"Watch, listen, then act,\" she says. \"That is how you'll survive what's coming.\" Your journey as a cultivator of Azure Cloud Sect begins — carefully, and {talent_aptitude}." }
+    ],
+    "choices": [
+      { "label": "Ask to join the Sword Hall.", "next": "ending_sword_cautious", "set_flags": {"path": "sword"} },
+      { "label": "Ask to join the Alchemy Hall.", "next": "ending_alchemy_cautious", "set_flags": {"path": "alchemy"} }
+    ]
+  },
+  "ending_sword_bold": {
+    "text": "You choose the Sword Hall. The instructor there is a scarred woman who tosses you a practice blade without a word of welcome. \"Bold ones burn out fast here,\" she says, \"but they also cut fastest. Let's see which you are.\" {talent_aptitude}, you raise the blade for the first of ten thousand strikes.",
+    "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "You choose the Sword Hall. The instructor there is a scarred woman who tosses you a practice blade without a word of welcome. \"A blade for protecting people is still a blade,\" she says. \"Let's see if you can carry both truths.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"spiritual_root": "fire"}, "text": "You choose the Sword Hall. The instructor tosses you a practice blade, and it feels warm in your grip before you've even swung it. \"Bold ones burn out fast here,\" she says, \"you especially, I'd wager.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"moral_alignment": "ruthless"}, "text": "You choose the Sword Hall. The instructor sizes you up and tosses you a practice blade. \"Good. This hall doesn't need convincing people to hit things — just people willing to.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"species": "half_spirit_beast"}, "text": "You choose the Sword Hall. The instructor tosses you a practice blade, watching the way your body moves like it already half-expects a fight. \"Bold ones burn out fast here,\" she says. \"You might last longer than most.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." }
+    ],
+    "choices": []
+  },
+  "ending_alchemy_bold": {
+    "text": "You choose the Alchemy Hall. The instructor there, an old man with permanently stained fingers, hands you a mortar and pestle. \"Boldness in this hall gets you burned eyebrows, not glory,\" he says, not unkindly. \"But I've seen bold hands make fine medicine, too.\" {talent_aptitude}, you begin grinding your first ingredient.",
+    "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "transcend"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"You want to transcend your limits? Half the pills in this hall exist because someone refused to accept their body's limits either.\" {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"background": "scholar"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, pleased to hear you can already read. \"Most of my disciples can't tell a formula from a grocery list,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"spiritual_root": "wood"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, glancing approvingly at the faint green edge to your qi. \"Wood roots make the best alchemists,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"moral_alignment": "compassionate"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"Good. This hall exists to heal people, not just to make people who hurt other people more efficient.\" {talent_aptitude}, you begin grinding your first ingredient." }
+    ],
+    "choices": []
+  },
+  "ending_sword_cautious": {
+    "text": "You choose the Sword Hall. The instructor there, a scarred woman, studies the careful way you accepted the trial stone before handing you a practice blade. \"Caution suits a blade better than most disciples realize,\" she says. \"Reckless swordsmen die reckless deaths.\" {talent_aptitude}, you raise the blade for the first of ten thousand strikes.",
+    "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "protect"}, "text": "You choose the Sword Hall. The instructor studies you and hands you a practice blade. \"A careful blade lasts longer to protect the people behind it,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"spiritual_root": "earth"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, nodding at the steady, grounded way you hold it already. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"moral_alignment": "detached"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, unbothered by how little you seem to need her approval. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
+      { "when": {"background": "scholar"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, amused that someone who clearly prefers books chose this hall at all. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." }
+    ],
+    "choices": []
+  },
+  "ending_alchemy_cautious": {
+    "text": "You choose the Alchemy Hall. The old instructor there studies the careful way you accepted the trial stone and nods approvingly, handing you a mortar and pestle. \"Alchemy rewards patience, not bravado,\" he says. \"You'll do well here.\" {talent_aptitude}, you begin grinding your first ingredient.",
+    "backdrop": "sect_hall",
+    "variants": [
+      { "when": {"motive": "transcend"}, "text": "You choose the Alchemy Hall. The old instructor nods approvingly and hands you a mortar and pestle. \"Ambition tempered with patience — that's how you actually transcend a limit, instead of just breaking against it.\" {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"spiritual_root": "water"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, pleased at the calm, still quality of your qi. \"Water roots make patient alchemists,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"moral_alignment": "compassionate"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"Careful hands and a caring heart — that's exactly what this hall needs more of.\" {talent_aptitude}, you begin grinding your first ingredient." },
+      { "when": {"wealth": "modest"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, noting the practical, unshowy way you handle it. \"Alchemy rewards patience, not bravado,\" he says. {talent_aptitude}, you begin grinding your first ingredient." }
     ],
     "choices": []
   }

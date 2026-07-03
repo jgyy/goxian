@@ -7,7 +7,7 @@ const LATEST_TEXT_COLOR := "#ffd166"
 @onready var story_log: RichTextLabel = $VBox/StoryLog
 @onready var choices_box: VBoxContainer = $VBox/ChoicesBox
 
-var _last_text_start := 0
+var _beat_count := 0
 
 func _ready() -> void:
 	StoryManager.node_changed.connect(_on_node_changed)
@@ -21,7 +21,8 @@ func _render_current_node() -> void:
 
 	scene_art.set_backdrop(node["backdrop"])
 	_dim_previous_text()
-	story_log.append_text("\n\n[color=%s]%s[/color]" % [LATEST_TEXT_COLOR, node["text"].replace("[", "[lb]")])
+	_beat_count += 1
+	story_log.append_text("\n\n[color=%s][b]%d.[/b] %s[/color]" % [LATEST_TEXT_COLOR, _beat_count, node["text"].replace("[", "[lb]")])
 
 	for child in choices_box.get_children():
 		child.queue_free()
