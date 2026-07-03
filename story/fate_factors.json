@@ -7,16 +7,6 @@
       { "id": "nonbinary", "label": "Non-binary", "snippet": "someone who has never fit neatly into the village's old words" }
     ]
   },
-  "age": {
-    "label": "Age",
-    "options": [
-      { "id": "child", "label": "Child", "snippet": "small for the trial, and painfully aware of it" },
-      { "id": "youth", "label": "Youth", "snippet": "young enough that the elders still call you 'little one'" },
-      { "id": "young_adult", "label": "Young Adult", "snippet": "at the age most cultivators begin, neither too early nor too late" },
-      { "id": "middle_aged", "label": "Middle-aged", "snippet": "older than most who stand at this gate, and you feel every year of it" },
-      { "id": "elder", "label": "Elder", "snippet": "gray-haired among disciples half your age, here anyway" }
-    ]
-  },
   "background": {
     "label": "Background",
     "options": [
@@ -79,16 +69,6 @@
       { "id": "trade_barge", "label": "Floating Trade Barge", "snippet": "you grew up with the world sliding past beneath a barge's deck" }
     ]
   },
-  "family_relationships": {
-    "label": "Family Relationships",
-    "options": [
-      { "id": "loving_family", "label": "Loving Family", "snippet": "a family waits for your letters, worried and warm" },
-      { "id": "estranged_family", "label": "Estranged Family", "snippet": "you left words unsaid to a family you may never see again" },
-      { "id": "sole_survivor", "label": "Sole Survivor", "snippet": "you are the only one left of the family you were born into" },
-      { "id": "clan_obligations", "label": "Large Clan Obligations", "snippet": "a sprawling clan's expectations ride on your shoulders here" },
-      { "id": "adoptive_family", "label": "Adoptive Family", "snippet": "the family that raised you shares none of your blood, and all of your loyalty" }
-    ]
-  },
   "fengshui_omen": {
     "label": "Fengshui Omen",
     "options": [
@@ -97,16 +77,6 @@
       { "id": "neutral", "label": "Neutral", "snippet": "no omen marked your birth one way or the other" },
       { "id": "twin_star", "label": "Twin-Star Omen", "snippet": "a diviner once told your family a rival or ally is fated to mirror your path" },
       { "id": "unreadable", "label": "Unreadable Fate", "snippet": "every diviner who has tried to read your fate has simply gone quiet" }
-    ]
-  },
-  "appearance": {
-    "label": "Appearance",
-    "options": [
-      { "id": "striking", "label": "Striking", "snippet": "people's eyes catch on you and linger a moment too long" },
-      { "id": "plain", "label": "Plain", "snippet": "you have the kind of face people forget within the hour" },
-      { "id": "unsettling", "label": "Unsettling", "snippet": "something about your bearing makes strangers take half a step back" },
-      { "id": "delicate", "label": "Delicate", "snippet": "you look like something easily broken, whether or not that's true" },
-      { "id": "imposing", "label": "Imposing", "snippet": "you take up more space in a room than your frame should allow" }
     ]
   },
   "talent_aptitude": {

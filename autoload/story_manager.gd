@@ -96,7 +96,8 @@ func save_game() -> void:
 		"arc": _arc_name,
 		"current_node_id": current_node_id,
 		"flags": flags,
-		"profile": ProfileManager.profile
+		"profile": ProfileManager.profile,
+		"player_name": ProfileManager.player_name
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
@@ -116,6 +117,7 @@ func load_game() -> bool:
 	_nodes = _load_arc(arc_name)
 	flags = parsed.get("flags", {})
 	ProfileManager.set_profile(parsed.get("profile", {}))
+	ProfileManager.set_player_name(parsed.get("player_name", ""))
 	var loaded_node: String = parsed.get("current_node_id", "start")
 	current_node_id = loaded_node if _nodes.has(loaded_node) else "start"
 	node_changed.emit()

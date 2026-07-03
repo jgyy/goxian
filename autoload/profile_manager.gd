@@ -4,6 +4,7 @@ const FACTORS_PATH := "res://story/fate_factors.json"
 
 var _factors: Dictionary = {}
 var profile: Dictionary = {}
+var player_name: String = ""
 
 func _ready() -> void:
 	_factors = _load_factors()
@@ -43,10 +44,15 @@ func set_choice(factor_id: String, option_id: String) -> void:
 	profile[factor_id] = option_id
 
 func is_complete() -> bool:
+	if player_name.strip_edges() == "":
+		return false
 	for factor_id in _factors:
 		if not profile.has(factor_id):
 			return false
 	return true
+
+func set_player_name(new_name: String) -> void:
+	player_name = new_name
 
 func _find_option(factor_id: String, option_id: String) -> Dictionary:
 	var factor: Dictionary = _factors.get(factor_id, {})
@@ -65,6 +71,9 @@ func get_snippet(factor_id: String) -> String:
 
 func apply_template(text: String) -> String:
 	var result := text
+	if result.find("{name}") != -1:
+		var display_name := player_name if player_name.strip_edges() != "" else "you"
+		result = result.replace("{name}", display_name)
 	for factor_id in _factors:
 		var placeholder := "{%s}" % factor_id
 		if result.find(placeholder) != -1:
