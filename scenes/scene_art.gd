@@ -16,6 +16,10 @@ func _draw() -> void:
 			_draw_sect_hall(size)
 		"character_creation":
 			_draw_character_creation(size)
+		"sword_hall":
+			_draw_sword_hall(size)
+		"alchemy_hall":
+			_draw_alchemy_hall(size)
 		_:
 			_draw_fallback(size)
 
@@ -310,6 +314,80 @@ func _draw_character_creation(size: Vector2) -> void:
 	var figure_base_y := size.y * 0.85
 	draw_rect(Rect2(Vector2(figure_x - size.x * 0.012, figure_base_y - size.y * 0.18), Vector2(size.x * 0.024, size.y * 0.18)), Color(0.05, 0.04, 0.1))
 	draw_circle(Vector2(figure_x, figure_base_y - size.y * 0.2), size.y * 0.025, Color(0.05, 0.04, 0.1))
+
+func _draw_sword_hall(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.5, 0.55, 0.7), Color(0.85, 0.6, 0.45))
+
+	# Training yard floor
+	draw_rect(Rect2(Vector2(0, size.y * 0.75), Vector2(size.x, size.y * 0.25)), Color(0.45, 0.4, 0.35))
+	for i in range(10):
+		var lx := size.x * (float(i) / 10.0)
+		draw_line(Vector2(lx, size.y * 0.75), Vector2(lx, size.y), Color(0.35, 0.3, 0.25, 0.5), 1.5)
+
+	# Distant training hall silhouette
+	var hall_points := PackedVector2Array([
+		Vector2(size.x * 0.05, size.y * 0.5),
+		Vector2(size.x * 0.5, size.y * 0.3),
+		Vector2(size.x * 0.95, size.y * 0.5),
+		Vector2(size.x * 0.95, size.y * 0.75),
+		Vector2(size.x * 0.05, size.y * 0.75)
+	])
+	draw_colored_polygon(hall_points, Color(0.3, 0.25, 0.3, 0.85))
+
+	# Weapon rack with practice blades, stage left
+	var rack_x := size.x * 0.12
+	draw_rect(Rect2(Vector2(rack_x, size.y * 0.55), Vector2(size.x * 0.02, size.y * 0.2)), Color(0.2, 0.15, 0.1))
+	for i in range(4):
+		var blade_x := rack_x - size.x * 0.03 + i * size.x * 0.018
+		draw_line(Vector2(blade_x, size.y * 0.58), Vector2(blade_x + size.x * 0.01, size.y * 0.5), Color(0.75, 0.75, 0.8), 3.0)
+
+	# A training dummy, stage right
+	var dummy_x := size.x * 0.82
+	draw_line(Vector2(dummy_x, size.y * 0.75), Vector2(dummy_x, size.y * 0.55), Color(0.4, 0.3, 0.2), 6.0)
+	draw_circle(Vector2(dummy_x, size.y * 0.5), size.y * 0.03, Color(0.5, 0.35, 0.2))
+	draw_line(Vector2(dummy_x - size.x * 0.04, size.y * 0.58), Vector2(dummy_x + size.x * 0.04, size.y * 0.58), Color(0.4, 0.3, 0.2), 4.0)
+
+	# Dust motes kicked up by training, drifting in the light
+	var dust_positions := PackedVector2Array([
+		Vector2(0.3, 0.7), Vector2(0.45, 0.65), Vector2(0.55, 0.72), Vector2(0.38, 0.6)
+	])
+	for d in dust_positions:
+		draw_circle(Vector2(size.x * d.x, size.y * d.y), 1.5, Color(1.0, 0.95, 0.85, 0.4))
+
+func _draw_alchemy_hall(size: Vector2) -> void:
+	_draw_sky_gradient(size, Color(0.35, 0.45, 0.4), Color(0.6, 0.5, 0.35))
+
+	# Workshop floor
+	draw_rect(Rect2(Vector2(0, size.y * 0.75), Vector2(size.x, size.y * 0.25)), Color(0.3, 0.25, 0.2))
+
+	# Shelving with jars, stage left and right
+	var shelf_sides: Array[float] = [0.05, 0.85]
+	for side in shelf_sides:
+		draw_rect(Rect2(Vector2(size.x * side, size.y * 0.35), Vector2(size.x * 0.1, size.y * 0.4)), Color(0.3, 0.2, 0.15))
+		for row in range(3):
+			var jar_y: float = size.y * (0.4 + row * 0.12)
+			for col in range(2):
+				var jar_x: float = size.x * side + size.x * 0.02 + col * size.x * 0.045
+				draw_rect(Rect2(Vector2(jar_x, jar_y), Vector2(size.x * 0.03, size.y * 0.08)), Color(0.5, 0.7, 0.5, 0.7))
+
+	# A central cauldron with rising steam
+	var cauldron_center := Vector2(size.x * 0.5, size.y * 0.72)
+	draw_colored_polygon(PackedVector2Array([
+		cauldron_center + Vector2(-size.x * 0.08, 0),
+		cauldron_center + Vector2(size.x * 0.08, 0),
+		cauldron_center + Vector2(size.x * 0.06, size.y * 0.08),
+		cauldron_center + Vector2(-size.x * 0.06, size.y * 0.08)
+	]), Color(0.15, 0.12, 0.1))
+	draw_circle(cauldron_center + Vector2(0, -size.y * 0.005), size.x * 0.08, Color(0.4, 0.7, 0.5, 0.8))
+
+	for i in range(3):
+		var t := float(i) / 3.0
+		draw_circle(cauldron_center + Vector2(sin(t * 5.0) * 6.0, -size.y * (0.1 + t * 0.15)), 3.0 - t * 1.5, Color(0.7, 0.9, 0.75, 0.4 - t * 0.1))
+
+	# Hanging dried herb bundles from the ceiling
+	for hx in [0.3, 0.7]:
+		draw_line(Vector2(size.x * hx, size.y * 0.15), Vector2(size.x * hx, size.y * 0.3), Color(0.3, 0.25, 0.15), 1.5)
+		draw_circle(Vector2(size.x * hx, size.y * 0.32), size.y * 0.02, Color(0.4, 0.55, 0.3))
 
 func _draw_fallback(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.5, 0.3, 0.65), Color(0.85, 0.5, 0.55))

@@ -177,45 +177,83 @@
   },
   "ending_sword_bold": {
     "text": "You choose the Sword Hall. The instructor there is a scarred woman who tosses you a practice blade without a word of welcome. \"Bold ones burn out fast here,\" she says, \"but they also cut fastest. Let's see which you are.\" {talent_aptitude}, you raise the blade for the first of ten thousand strikes.",
-    "backdrop": "sect_hall",
+    "backdrop": "sword_hall",
     "variants": [
       { "when": {"motive": "protect"}, "text": "You choose the Sword Hall. The instructor there is a scarred woman who tosses you a practice blade without a word of welcome. \"A blade for protecting people is still a blade,\" she says. \"Let's see if you can carry both truths.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"spiritual_root": "fire"}, "text": "You choose the Sword Hall. The instructor tosses you a practice blade, and it feels warm in your grip before you've even swung it. \"Bold ones burn out fast here,\" she says, \"you especially, I'd wager.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"moral_alignment": "ruthless"}, "text": "You choose the Sword Hall. The instructor sizes you up and tosses you a practice blade. \"Good. This hall doesn't need convincing people to hit things — just people willing to.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"species": "half_spirit_beast"}, "text": "You choose the Sword Hall. The instructor tosses you a practice blade, watching the way your body moves like it already half-expects a fight. \"Bold ones burn out fast here,\" she says. \"You might last longer than most.\" {talent_aptitude}, you raise it for the first of ten thousand strikes." }
     ],
-    "choices": []
+    "choices": [
+      { "label": "Train relentlessly, ignoring the pain.", "next": "final_sword", "set_flags": {"training_style": "relentless"} },
+      { "label": "Train diligently, but rest when your body demands it.", "next": "final_sword", "set_flags": {"training_style": "balanced"} }
+    ]
   },
   "ending_alchemy_bold": {
     "text": "You choose the Alchemy Hall. The instructor there, an old man with permanently stained fingers, hands you a mortar and pestle. \"Boldness in this hall gets you burned eyebrows, not glory,\" he says, not unkindly. \"But I've seen bold hands make fine medicine, too.\" {talent_aptitude}, you begin grinding your first ingredient.",
-    "backdrop": "sect_hall",
+    "backdrop": "alchemy_hall",
     "variants": [
       { "when": {"motive": "transcend"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"You want to transcend your limits? Half the pills in this hall exist because someone refused to accept their body's limits either.\" {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"background": "scholar"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, pleased to hear you can already read. \"Most of my disciples can't tell a formula from a grocery list,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"spiritual_root": "wood"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, glancing approvingly at the faint green edge to your qi. \"Wood roots make the best alchemists,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"moral_alignment": "compassionate"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"Good. This hall exists to heal people, not just to make people who hurt other people more efficient.\" {talent_aptitude}, you begin grinding your first ingredient." }
     ],
-    "choices": []
+    "choices": [
+      { "label": "Experiment boldly with unproven mixtures.", "next": "final_alchemy", "set_flags": {"training_style": "bold"} },
+      { "label": "Follow the old formulas precisely.", "next": "final_alchemy", "set_flags": {"training_style": "careful"} }
+    ]
   },
   "ending_sword_cautious": {
     "text": "You choose the Sword Hall. The instructor there, a scarred woman, studies the careful way you accepted the trial stone before handing you a practice blade. \"Caution suits a blade better than most disciples realize,\" she says. \"Reckless swordsmen die reckless deaths.\" {talent_aptitude}, you raise the blade for the first of ten thousand strikes.",
-    "backdrop": "sect_hall",
+    "backdrop": "sword_hall",
     "variants": [
       { "when": {"motive": "protect"}, "text": "You choose the Sword Hall. The instructor studies you and hands you a practice blade. \"A careful blade lasts longer to protect the people behind it,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"spiritual_root": "earth"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, nodding at the steady, grounded way you hold it already. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"moral_alignment": "detached"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, unbothered by how little you seem to need her approval. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." },
       { "when": {"background": "scholar"}, "text": "You choose the Sword Hall. The instructor hands you a practice blade, amused that someone who clearly prefers books chose this hall at all. \"Caution suits a blade better than most disciples realize,\" she says. {talent_aptitude}, you raise it for the first of ten thousand strikes." }
     ],
-    "choices": []
+    "choices": [
+      { "label": "Train relentlessly, ignoring the pain.", "next": "final_sword", "set_flags": {"training_style": "relentless"} },
+      { "label": "Train diligently, but rest when your body demands it.", "next": "final_sword", "set_flags": {"training_style": "balanced"} }
+    ]
   },
   "ending_alchemy_cautious": {
     "text": "You choose the Alchemy Hall. The old instructor there studies the careful way you accepted the trial stone and nods approvingly, handing you a mortar and pestle. \"Alchemy rewards patience, not bravado,\" he says. \"You'll do well here.\" {talent_aptitude}, you begin grinding your first ingredient.",
-    "backdrop": "sect_hall",
+    "backdrop": "alchemy_hall",
     "variants": [
       { "when": {"motive": "transcend"}, "text": "You choose the Alchemy Hall. The old instructor nods approvingly and hands you a mortar and pestle. \"Ambition tempered with patience — that's how you actually transcend a limit, instead of just breaking against it.\" {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"spiritual_root": "water"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, pleased at the calm, still quality of your qi. \"Water roots make patient alchemists,\" he says. {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"moral_alignment": "compassionate"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle. \"Careful hands and a caring heart — that's exactly what this hall needs more of.\" {talent_aptitude}, you begin grinding your first ingredient." },
       { "when": {"wealth": "modest"}, "text": "You choose the Alchemy Hall. The old instructor hands you a mortar and pestle, noting the practical, unshowy way you handle it. \"Alchemy rewards patience, not bravado,\" he says. {talent_aptitude}, you begin grinding your first ingredient." }
+    ],
+    "choices": [
+      { "label": "Experiment boldly with unproven mixtures.", "next": "final_alchemy", "set_flags": {"training_style": "bold"} },
+      { "label": "Follow the old formulas precisely.", "next": "final_alchemy", "set_flags": {"training_style": "careful"} }
+    ]
+  },
+  "final_sword": {
+    "text": "Months pass in a blur of bruises and calluses. One morning, the scarred instructor watches you complete the thousandth-and-first strike without correction, and simply nods. \"You're a swordsman of Azure Cloud Sect now,\" she says. {talent_aptitude}, and the blade finally feels like part of your arm rather than a tool in your hand.",
+    "backdrop": "sword_hall",
+    "variants": [
+      { "when": {"training_style": "relentless"}, "text": "Months pass in a blur of bruises you never let heal properly. One morning, the scarred instructor watches you complete the thousandth-and-first strike, swaying on your feet, and simply nods. \"You're a swordsman of Azure Cloud Sect now — and a fool who doesn't rest, but a swordsman all the same.\" {talent_aptitude}, and the blade finally feels like part of your arm." },
+      { "when": {"training_style": "balanced"}, "text": "Months pass, bruises healing into calluses at their own pace. One morning, the scarred instructor watches you complete the thousandth-and-first strike, steady and unhurried, and simply nods. \"You're a swordsman of Azure Cloud Sect now — one who'll still be standing in ten years, unlike some of the others.\" {talent_aptitude}, and the blade finally feels like part of your arm." },
+      { "when": {"motive": "protect"}, "text": "Months pass in a blur of bruises and calluses, every strike practiced with a face in mind that isn't your own. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — and whoever you're doing this for is lucky to have you.\" {talent_aptitude}." },
+      { "when": {"spiritual_root": "heretical"}, "text": "Months pass in a blur of bruises and calluses, your tangled qi finally starting to answer the blade instead of arguing with it. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — a strange one, but a real one.\" {talent_aptitude}." },
+      { "when": {"species": "demonic_bloodline"}, "text": "Months pass in a blur of bruises and calluses, and no one in the Sword Hall so much as mentions your bloodline anymore — they've seen you bleed like everyone else. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now.\" {talent_aptitude}." },
+      { "when": {"moral_alignment": "righteous"}, "text": "Months pass in a blur of bruises and calluses, each strike drilled with the same quiet conviction you started with. One morning, the scarred instructor watches you complete the thousandth-and-first strike and nods. \"You're a swordsman of Azure Cloud Sect now — the Dao could use more like you.\" {talent_aptitude}." }
+    ],
+    "choices": []
+  },
+  "final_alchemy": {
+    "text": "Months pass in a haze of scorched fingertips and ruined batches. One afternoon, the old instructor tastes a pill you've brewed, raises his eyebrows, and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now,\" he says. {talent_aptitude}, and the mortar and pestle finally feel like an extension of your hands rather than borrowed tools.",
+    "backdrop": "alchemy_hall",
+    "variants": [
+      { "when": {"training_style": "bold"}, "text": "Months pass in a haze of scorched fingertips and small explosions the instructor has stopped flinching at. One afternoon, he tastes a pill you brewed from a formula that technically doesn't exist yet, and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — a reckless one, but a real one.\" {talent_aptitude}." },
+      { "when": {"training_style": "careful"}, "text": "Months pass in a haze of scorched fingertips, though fewer than most disciples manage, thanks to how precisely you follow the old formulas. One afternoon, the instructor tastes a pill you brewed exactly by the book and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — precise as they come.\" {talent_aptitude}." },
+      { "when": {"motive": "transcend"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, each failure just another limit you refuse to accept. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and I suspect this hall won't hold you forever.\" {talent_aptitude}." },
+      { "when": {"background": "scholar"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, though you've read every scrap of theory in the hall's library twice by now. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — the theory finally caught up to the practice.\" {talent_aptitude}." },
+      { "when": {"spiritual_root": "wood"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, though your formulas seem to grow steadier with each attempt, like something taking root. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now.\" {talent_aptitude}." },
+      { "when": {"moral_alignment": "compassionate"}, "text": "Months pass in a haze of scorched fingertips and ruined batches, most of them attempts at remedies for disciples too proud to visit the healer's hall. One afternoon, the instructor tastes a pill you've brewed and doesn't spit it out. \"You're an alchemist of Azure Cloud Sect now — and half this hall already owes you a favor.\" {talent_aptitude}." }
     ],
     "choices": []
   }
