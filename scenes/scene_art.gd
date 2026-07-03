@@ -320,41 +320,43 @@ func _draw_character_creation(size: Vector2) -> void:
 func _draw_sword_hall(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.5, 0.55, 0.7), Color(0.85, 0.6, 0.45))
 
-	# Training yard floor
-	draw_rect(Rect2(Vector2(0, size.y * 0.75), Vector2(size.x, size.y * 0.25)), Color(0.45, 0.4, 0.35))
+	# Distant training hall roof, kept modest and set well back
+	var hall_points := PackedVector2Array([
+		Vector2(size.x * 0.15, size.y * 0.42),
+		Vector2(size.x * 0.5, size.y * 0.22),
+		Vector2(size.x * 0.85, size.y * 0.42),
+		Vector2(size.x * 0.85, size.y * 0.62),
+		Vector2(size.x * 0.15, size.y * 0.62)
+	])
+	draw_colored_polygon(hall_points, Color(0.35, 0.3, 0.35, 0.7))
+
+	# Training yard floor (foreground, drawn on top of the distant hall)
+	draw_rect(Rect2(Vector2(0, size.y * 0.8), Vector2(size.x, size.y * 0.2)), Color(0.45, 0.4, 0.35))
 	for i in range(10):
 		var lx := size.x * (float(i) / 10.0)
-		draw_line(Vector2(lx, size.y * 0.75), Vector2(lx, size.y), Color(0.35, 0.3, 0.25, 0.5), 1.5)
+		draw_line(Vector2(lx, size.y * 0.8), Vector2(lx, size.y), Color(0.35, 0.3, 0.25, 0.5), 1.5)
 
-	# Distant training hall silhouette
-	var hall_points := PackedVector2Array([
-		Vector2(size.x * 0.05, size.y * 0.5),
-		Vector2(size.x * 0.5, size.y * 0.3),
-		Vector2(size.x * 0.95, size.y * 0.5),
-		Vector2(size.x * 0.95, size.y * 0.75),
-		Vector2(size.x * 0.05, size.y * 0.75)
-	])
-	draw_colored_polygon(hall_points, Color(0.3, 0.25, 0.3, 0.85))
-
-	# Weapon rack with practice blades, stage left
+	# Weapon rack with practice blades, stage left, standing on the floor
 	var rack_x := size.x * 0.12
-	draw_rect(Rect2(Vector2(rack_x, size.y * 0.55), Vector2(size.y * 0.015, size.y * 0.2)), Color(0.2, 0.15, 0.1))
+	var rack_h: float = size.y * 0.22
+	draw_rect(Rect2(Vector2(rack_x, size.y * 0.8 - rack_h), Vector2(size.y * 0.015, rack_h)), Color(0.2, 0.15, 0.1))
 	for i in range(4):
-		var blade_x := rack_x - size.y * 0.05 + i * size.y * 0.03
-		draw_line(Vector2(blade_x, size.y * 0.58), Vector2(blade_x + size.y * 0.015, size.y * 0.5), Color(0.75, 0.75, 0.8), 3.0)
+		var blade_x := rack_x - size.y * 0.06 + i * size.y * 0.035
+		draw_line(Vector2(blade_x, size.y * 0.8), Vector2(blade_x + size.y * 0.015, size.y * 0.8 - rack_h * 0.85), Color(0.75, 0.75, 0.8), 3.0)
 
-	# A training dummy, stage right
+	# A training dummy, stage right, standing on the floor
 	var dummy_x := size.x * 0.82
-	draw_line(Vector2(dummy_x, size.y * 0.75), Vector2(dummy_x, size.y * 0.55), Color(0.4, 0.3, 0.2), 6.0)
-	draw_circle(Vector2(dummy_x, size.y * 0.5), size.y * 0.03, Color(0.5, 0.35, 0.2))
-	draw_line(Vector2(dummy_x - size.x * 0.04, size.y * 0.58), Vector2(dummy_x + size.x * 0.04, size.y * 0.58), Color(0.4, 0.3, 0.2), 4.0)
+	var dummy_h: float = size.y * 0.25
+	draw_line(Vector2(dummy_x, size.y * 0.8), Vector2(dummy_x, size.y * 0.8 - dummy_h), Color(0.4, 0.3, 0.2), 6.0)
+	draw_circle(Vector2(dummy_x, size.y * 0.8 - dummy_h), size.y * 0.03, Color(0.5, 0.35, 0.2))
+	draw_line(Vector2(dummy_x - size.y * 0.05, size.y * 0.8 - dummy_h * 0.7), Vector2(dummy_x + size.y * 0.05, size.y * 0.8 - dummy_h * 0.7), Color(0.4, 0.3, 0.2), 4.0)
 
-	# Dust motes kicked up by training, drifting in the light
+	# Dust motes kicked up by training, drifting above the floor
 	var dust_positions := PackedVector2Array([
-		Vector2(0.3, 0.7), Vector2(0.45, 0.65), Vector2(0.55, 0.72), Vector2(0.38, 0.6)
+		Vector2(0.3, 0.75), Vector2(0.45, 0.7), Vector2(0.55, 0.77), Vector2(0.38, 0.65)
 	])
 	for d in dust_positions:
-		draw_circle(Vector2(size.x * d.x, size.y * d.y), 1.5, Color(1.0, 0.95, 0.85, 0.4))
+		draw_circle(Vector2(size.x * d.x, size.y * d.y), 1.5, Color(1.0, 0.95, 0.85, 0.5))
 
 func _draw_alchemy_hall(size: Vector2) -> void:
 	_draw_sky_gradient(size, Color(0.35, 0.45, 0.4), Color(0.6, 0.5, 0.35))
